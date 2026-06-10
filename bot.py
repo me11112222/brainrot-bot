@@ -12,6 +12,7 @@
 データ: characters.json（build_from_csv.py で生成）/ 画像: ./images/
 計算: スキン(ゲージ)倍率 = base × b（倍率表どおり）。Trait(a)/★Level(c)は今後追加。
 """
+import datetime
 import json
 import os
 import re
@@ -76,6 +77,56 @@ _block_count = defaultdict(int)
 
 # Findを押した人の「前回開いた図鑑」インタラクション（押し直しで古いのを消す用）
 _user_open = {}
+
+# ── 利用統計（裏で静かにカウント。公開スパムなし）──
+USAGE_FILE = BASE / "usage.json"
+_usage = {"opens": 0, "users": [], "by_day": {}, "by_char": {}, "by_rarity": {}}
+_usage_users = set()
+_last_usage_save = 0.0
+
+
+def _load_usage():
+    global _usage, _usage_users
+    try:
+        _usage = json.loads(USAGE_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    for k, d in (("opens", 0), ("users", []), ("by_day", {}),
+                 ("by_char", {}), ("by_rarity", {})):
+        _usage.setdefault(k, d)
+    _usage_users = set(_usage.get("users", []))
+
+
+def _save_usage(force=False):
+    global _last_usage_save
+    now = time.monotonic()
+    if not force and now - _last_usage_save < 20:
+        return  # ディスク書き込みを20秒に1回までに抑制
+    _last_usage_save = now
+    _usage["users"] = list(_usage_users)
+    try:
+        USAGE_FILE.write_text(json.dumps(_usage, ensure_ascii=False), encoding="utf-8")
+    except Exception:
+        pass
+
+
+def record_open(uid):
+    _usage["opens"] += 1
+    _usage_users.add(uid)
+    today = datetime.date.today().isoformat()
+    _usage["by_day"][today] = _usage["by_day"].get(today, 0) + 1
+    _save_usage()
+
+
+def record_view(uid, char):
+    _usage_users.add(uid)
+    _usage["by_char"][char["name"]] = _usage["by_char"].get(char["name"], 0) + 1
+    r = char["rarity"]
+    _usage["by_rarity"][r] = _usage["by_rarity"].get(r, 0) + 1
+    _save_usage()
+
+
+_load_usage()
 
 
 def rate_ok(uid: int) -> bool:
@@ -357,6 +408,8 @@ class IndexView(discord.ui.View):
         async def cb(interaction):
             self.char = BY_NAME.get(sel.values[0].lower())
             self._reset_custom()
+            if self.char:
+                record_view(interaction.user.id, self.char)
             await self._refresh(interaction)
         sel.callback = cb
         return sel
@@ -460,6 +513,7 @@ class OpenPanelView(discord.ui.View):
         await interaction.response.send_message(
             embed=view.intro_embed(), view=view, ephemeral=True)
         _user_open[interaction.user.id] = interaction
+        record_open(interaction.user.id)
 
 
 def panel_embed():
@@ -588,8 +642,10 @@ async def index_cmd(interaction: discord.Interaction, name: str = None):
             await interaction.response.send_message(
                 f"\"{name}\" not found.", ephemeral=True)
             return
+    record_open(interaction.user.id)
     view = IndexView(char=char)
     if char:
+        record_view(interaction.user.id, char)
         e, f = result_embed(char, "Default")
         await interaction.response.send_message(embed=e, view=view, file=f if f else discord.utils.MISSING)
     else:
@@ -661,6 +717,8 @@ async def random_cmd(interaction, rarity: app_commands.Choice[str] = None):
     if not pool:
         await interaction.response.send_message("No results.", ephemeral=True); return
     c = random.choice(pool)
+    record_open(interaction.user.id)
+    record_view(interaction.user.id, c)
     e, f = result_embed(c, "Default")
     view = IndexView(char=c)
     await interaction.response.send_message(embed=e, view=view, file=f if f else discord.utils.MISSING)
@@ -728,6 +786,34 @@ async def unpanel_cmd(interaction: discord.Interaction, channel: discord.TextCha
 async def panel_err(interaction: discord.Interaction, error):
     await interaction.response.send_message(
         "You need the **Manage Server** permission to use this.", ephemeral=True)
+
+
+@client.tree.command(name="stats", description="Usage stats (admin only)")
+@admin_only()
+async def stats_cmd(interaction: discord.Interaction):
+    today = datetime.date.today().isoformat()
+    top = sorted(_usage["by_char"].items(), key=lambda x: -x[1])[:10]
+    # 直近7日
+    days = sorted(_usage["by_day"].items())[-7:]
+    lines = [
+        f"🔓 **Opens (total):** {_usage['opens']:,}",
+        f"👤 **Unique users:** {len(_usage_users):,}",
+        f"📅 **Today:** {_usage['by_day'].get(today, 0):,}",
+    ]
+    if days:
+        lines.append("\n**Last days:** " + " / ".join(f"{d[5:]}:{n}" for d, n in days))
+    if top:
+        lines.append("\n🏆 **Top characters:**")
+        for i, (nm, cnt) in enumerate(top, 1):
+            lines.append(f"{i}. {nm} — {cnt:,}")
+    e = discord.Embed(title="📊 Usage stats", description="\n".join(lines), color=0x10b981)
+    await interaction.response.send_message(embed=e, ephemeral=True)
+
+
+@stats_cmd.error
+async def stats_err(interaction: discord.Interaction, error):
+    await interaction.response.send_message(
+        "Admin only.", ephemeral=True)
 
 
 @client.tree.command(name="count", description="Show character counts per rarity")

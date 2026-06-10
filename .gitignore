@@ -4,5 +4,6 @@ images/
 __pycache__/
 *.pyc
 sticky.json
+usage.json
 _patch.py
 stats_raw_ocr.json
