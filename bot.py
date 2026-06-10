@@ -36,6 +36,10 @@ TOKEN = os.getenv("DISCORD_TOKEN", "")
 GUILD_ID = os.getenv("GUILD_ID", "").strip()
 # このサーバー以外では一切動かない（追加されても自動退出）
 ALLOWED_GUILD = int(GUILD_ID) if GUILD_ID.isdigit() else None
+# /panel /unpanel を使える役職名（カンマ区切り・小文字比較）。権限ビットが無い役職でもOKにする
+PANEL_ADMIN_ROLES = {r.strip().lower()
+                     for r in os.getenv("PANEL_ADMIN_ROLES", "Administrator").split(",")
+                     if r.strip()}
 
 RARITY_META = {
     "Common":        {"color": 0x4ade80, "emoji": "🟢", "order": 1},
@@ -670,12 +674,15 @@ def admin_only():
         if g.owner_id == interaction.user.id:          # サーバーオーナーは常にOK
             return True
         p = getattr(interaction.user, "guild_permissions", None)
-        return bool(p and (p.administrator or p.manage_guild))
+        if p and (p.administrator or p.manage_guild):  # 管理者/サーバー管理 権限
+            return True
+        # 権限ビットが無くても、許可役職名を持っていればOK
+        roles = getattr(interaction.user, "roles", [])
+        return any(r.name.lower() in PANEL_ADMIN_ROLES for r in roles)
     return app_commands.check(predicate)
 
 
 @client.tree.command(name="panel", description="Place a sticky 'Find' button in this channel (admin only)")
-@app_commands.default_permissions(manage_guild=True)   # 非管理者には表示すらされない
 @admin_only()
 async def panel_cmd(interaction: discord.Interaction):
     global _sticky_channel
@@ -689,7 +696,6 @@ async def panel_cmd(interaction: discord.Interaction):
 
 
 @client.tree.command(name="unpanel", description="Remove the Find panel & stop sticky (admin only)")
-@app_commands.default_permissions(manage_guild=True)
 @admin_only()
 async def unpanel_cmd(interaction: discord.Interaction):
     global _sticky_channel
