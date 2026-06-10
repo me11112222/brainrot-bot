@@ -662,9 +662,21 @@ async def random_cmd(interaction, rarity: app_commands.Choice[str] = None):
     await interaction.response.send_message(embed=e, view=view, file=f if f else discord.utils.MISSING)
 
 
+def admin_only():
+    async def predicate(interaction: discord.Interaction) -> bool:
+        g = interaction.guild
+        if g is None:
+            return False
+        if g.owner_id == interaction.user.id:          # サーバーオーナーは常にOK
+            return True
+        p = getattr(interaction.user, "guild_permissions", None)
+        return bool(p and (p.administrator or p.manage_guild))
+    return app_commands.check(predicate)
+
+
 @client.tree.command(name="panel", description="Place a sticky 'Find' button in this channel (admin only)")
 @app_commands.default_permissions(manage_guild=True)   # 非管理者には表示すらされない
-@app_commands.checks.has_permissions(manage_guild=True)
+@admin_only()
 async def panel_cmd(interaction: discord.Interaction):
     global _sticky_channel
     msg = await interaction.channel.send(embed=panel_embed(), view=OpenPanelView())
@@ -678,7 +690,7 @@ async def panel_cmd(interaction: discord.Interaction):
 
 @client.tree.command(name="unpanel", description="Remove the Find panel & stop sticky (admin only)")
 @app_commands.default_permissions(manage_guild=True)
-@app_commands.checks.has_permissions(manage_guild=True)
+@admin_only()
 async def unpanel_cmd(interaction: discord.Interaction):
     global _sticky_channel
     cid = interaction.channel.id
