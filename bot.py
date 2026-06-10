@@ -663,6 +663,7 @@ async def random_cmd(interaction, rarity: app_commands.Choice[str] = None):
 
 
 @client.tree.command(name="panel", description="Place a sticky 'Find' button in this channel (admin only)")
+@app_commands.default_permissions(manage_guild=True)   # 非管理者には表示すらされない
 @app_commands.checks.has_permissions(manage_guild=True)
 async def panel_cmd(interaction: discord.Interaction):
     global _sticky_channel
@@ -675,7 +676,28 @@ async def panel_cmd(interaction: discord.Interaction):
         ephemeral=True)
 
 
+@client.tree.command(name="unpanel", description="Remove the Find panel & stop sticky (admin only)")
+@app_commands.default_permissions(manage_guild=True)
+@app_commands.checks.has_permissions(manage_guild=True)
+async def unpanel_cmd(interaction: discord.Interaction):
+    global _sticky_channel
+    cid = interaction.channel.id
+    msg = _last_panel_msg.pop(cid, None)
+    if msg:
+        try:
+            await msg.delete()
+        except Exception:
+            pass
+    if _sticky_channel == cid:
+        _sticky_channel = None
+        _save_sticky()
+    await interaction.response.send_message(
+        "Panel removed. (If a message is still visible, delete it manually — "
+        "it won't come back now.)", ephemeral=True)
+
+
 @panel_cmd.error
+@unpanel_cmd.error
 async def panel_err(interaction: discord.Interaction, error):
     await interaction.response.send_message(
         "You need the **Manage Server** permission to use this.", ephemeral=True)
