@@ -682,24 +682,33 @@ def admin_only():
     return app_commands.check(predicate)
 
 
-@client.tree.command(name="panel", description="Place a sticky 'Find' button in this channel (admin only)")
+@client.tree.command(name="panel", description="Place a sticky 'Find' button (admin only)")
+@app_commands.describe(channel="Channel to place it in (default: here). Use this to target a locked channel.")
 @admin_only()
-async def panel_cmd(interaction: discord.Interaction):
+async def panel_cmd(interaction: discord.Interaction, channel: discord.TextChannel = None):
     global _sticky_channel
-    msg = await interaction.channel.send(embed=panel_embed(), view=OpenPanelView())
-    _sticky_channel = interaction.channel.id
-    _last_panel_msg[interaction.channel.id] = msg
+    target = channel or interaction.channel
+    try:
+        msg = await target.send(embed=panel_embed(), view=OpenPanelView())
+    except discord.Forbidden:
+        await interaction.response.send_message(
+            f"I can't post in {target.mention}. Give me **View Channel / Send Messages "
+            f"/ Embed Links** there, then try again.", ephemeral=True)
+        return
+    _sticky_channel = target.id
+    _last_panel_msg[target.id] = msg
     _save_sticky()
     await interaction.response.send_message(
-        "Panel placed — it will stay pinned to the bottom of this channel. ✅",
-        ephemeral=True)
+        f"Panel placed in {target.mention} ✅ (stays pinned to the bottom)", ephemeral=True)
 
 
 @client.tree.command(name="unpanel", description="Remove the Find panel & stop sticky (admin only)")
+@app_commands.describe(channel="Channel to remove it from (default: here)")
 @admin_only()
-async def unpanel_cmd(interaction: discord.Interaction):
+async def unpanel_cmd(interaction: discord.Interaction, channel: discord.TextChannel = None):
     global _sticky_channel
-    cid = interaction.channel.id
+    target = channel or interaction.channel
+    cid = target.id
     msg = _last_panel_msg.pop(cid, None)
     if msg:
         try:
@@ -710,8 +719,8 @@ async def unpanel_cmd(interaction: discord.Interaction):
         _sticky_channel = None
         _save_sticky()
     await interaction.response.send_message(
-        "Panel removed. (If a message is still visible, delete it manually — "
-        "it won't come back now.)", ephemeral=True)
+        f"Panel removed from {target.mention}. (Delete the message manually if it "
+        f"remains — it won't come back now.)", ephemeral=True)
 
 
 @panel_cmd.error
