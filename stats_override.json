@@ -1,0 +1,8 @@
+{
+  "_使い方": "キャラ名(またはMonsterTypeID文字列)をキーに、stats/effect/how_to_get を書くと図鑑に反映されます。書いたあと build_data.py を再実行してください。",
+  "_例_BizzyFishy": {
+    "stats": { "収入": "10/秒", "速度": "1.0" },
+    "effect": "特になし",
+    "how_to_get": "通常スポーン（Common）"
+  }
+}

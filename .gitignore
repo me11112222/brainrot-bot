@@ -1,0 +1,8 @@
+# 秘密情報・巨大物・一時物は上げない
+.env
+images/
+__pycache__/
+*.pyc
+sticky.json
+_patch.py
+stats_raw_ocr.json

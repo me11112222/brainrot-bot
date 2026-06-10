@@ -1,0 +1,225 @@
+連番,ページ,レア度,ティア,ページ内順,現在の名前(OCR),正しい名前(記入),攻撃力,生産力,価格,確認,百鬼,備考(ヒント),入手方法,確率
+1,2,Common,,1,BizzyFishy,BizzyFishy,10,1/s,10,OK,,,Red Carpet,
+2,2,Common,,2,LiriliLarila,LiriliLarila,20,2/s,200,OK,,,Red Carpet,
+3,2,Common,,3,TimCheese,TimCheese,30,3/s,300,OK,,,Red Carpet,
+4,2,Common,,4,TurtleSamonino,TurtleSamonino,40,4/s,400,OK,,,Red Carpet,
+5,2,Common,,5,Sloth-o-Meter,Sloth-o-Meter,50,5/s,500,OK,,,Red Carpet,
+6,2,Common,,6,FishyMikey,FishyMikey,60,6/s,600,OK,,,Red Carpet,
+7,2,Common,,7,SvininaBombardino,SvininaBombardino,70,7/s,700,OK,,,Red Carpet,
+8,2,Common,,8,ShakeShakeSparow,ShakeShakeSparow,80,8/s,800,OK,,,Red Carpet,
+9,2,Common,,9,OnceUponRabbit,OnceUponRabbit,90,9/s,900,OK,,,Red Carpet,
+10,2,Common,,10,PiPiPickles,PiPiPickles,100,10/s,1k,OK,,,Red Carpet,
+11,2,Common,,11,PeperoneCocodrillo,PeperoneCocodrillo,110,11/s,1.1k,OK,,,Red Carpet,
+12,2,Common,,12,KiwiPajaro,KiwiPajaro,120,12/s,1.2k,OK,,,Red Carpet,
+13,2,Common,,13,TurtleFrog,TurtleFrog,120,13/s,1.3k,OK,,,Red Carpet,
+14,2,Common,,14,BlueberriniTatticini,BlueberriniTatticini,80,9/s,850,OK,,,Red Carpet,
+15,2,Common,,15,TerrorCarrot,TerrorCarrot,40,5/s,450,OK,,,Red Carpet,
+16,2,Common,,16,OrangutiniAnanasini,OrangutiniAnanasini,155,19/s,1.4k,OK,,,Red Carpet,
+17,2,Common,,17,ChochinSafuru,ChochinSafuru,130,23/s,1k,OK,Y,,Demon Box,35.40%
+18,3,Rare,,1,TrippiTroppi,TrippiTroppi,130,15/s,2k,OK,,,Red Carpet,
+19,3,Rare,,2,BonecaAmbalabu,BonecaAmbalabu,140,24/s,3k,OK,,,Red Carpet,
+20,3,Rare,,3,TaTaTaTaSahul,TaTaTaTaSahul,150,33/s,4k,OK,,,Red Carpet,
+21,3,Rare,,4,BambooDragonfly,BambooDragonfly,160,42/s,5k,OK,,,Red Carpet,
+22,3,Rare,,5,DivinoLimoncello,DivinoLimoncello,170,51/s,6k,OK,,,Red Carpet,
+23,3,Rare,,6,ZebraZebraWatermelon,ZebraZebraWatermelon,180,60/s,7k,OK,,,Red Carpet,
+24,3,Rare,,7,Natzapinpara,Natzapinpara,190,69/s,9k,OK,,,Red Carpet,
+25,3,Rare,,8,DonutBantagino,DonutBantagino,200,75/s,10k,OK,,,Red Carpet,
+26,3,Rare,,9,BlueberrinniOctopussini,BlueberrinniOctopussini,170,55/s,6k,OK,,,Red Carpet,
+27,3,Rare,,10,MakaMakaRabbit,MakaMakaRabbit,140,27/s,3k,OK,,,Red Carpet,
+28,3,Rare,,11,ElefantinoFrigorifero,ElefantinoFrigorifero,222,72/s,8.5k,OK,,,Red Carpet,
+29,3,Rare,,12,KasaSafuru,KasaSafuru,200,70/s,15k,OK,Y,,Demon Box,30%
+30,4,Epic,,1,CappuccinoAssassino,CappuccinoAssassino,210,80/s,10k,OK,,,Red Carpet,
+31,4,Epic,,2,BrrBrrPatapim,BrrBrrPatapim,220,95/s,13k,OK,,,Red Carpet,
+32,4,Epic,,3,TrulimeroTrulicina,TrulimeroTrulicina,230,110/s,16k,OK,,,Red Carpet,
+33,4,Epic,,4,BenJohnnyMonkeyKnee,BenJohnnyMonkeyKnee,240,130/s,18k,OK,,,Red Carpet,
+34,4,Epic,,5,JudgementLight,JudgementLight,250,145/s,21k,OK,,,Red Carpet,
+35,4,Epic,,6,TomatoRedOmega,TomatoRedOmega,260,160/s,24k,OK,,,Red Carpet,
+36,4,Epic,,7,BuffoonRaccoon,BuffoonRaccoon,270,180/s,26k,OK,,,Red Carpet,
+37,4,Epic,,8,SkrrSkrrFlyDog,SkrrSkrrFlyDog,280,195/s,29k,OK,,,Red Carpet,
+38,4,Epic,,9,LosBizzyFishy,LosBizzyFishy,290,210/s,32k,OK,,,Red Carpet,
+39,4,Epic,,10,ShusiSkiSki,ShusiSkiSki,300,230/s,34k,OK,,,Red Carpet,
+40,4,Epic,,11,CorvoMoscaRata,CorvoMoscaRata,310,280/s,42k,OK,,,Red Carpet,
+41,4,Epic,,12,Pizzarama,Pizzarama,320,300/s,45k,OK,,,Red Carpet,
+42,4,Epic,,13,BiscuitDog,BiscuitDog,240,150/s,19k,OK,,,Red Carpet,
+43,4,Epic,,14,SigmaBoy,SigmaBoy,325,275/s,51k,⚠️要確認,,,Red Carpet,
+44,4,Epic,,15,GorogoroLion,GorogoroLion,330,?,50k,⚠️要確認,Y,,Demon Box,20%
+45,5,Legendary,,1,ChimpanziniBananini,ChimpanziniBananini,330,400/s,50k,OK,,,Red Carpet,
+46,5,Legendary,,2,BallerinaCappuccina,BallerinaCappuccina,340,500/s,75k,OK,,,Red Carpet,
+47,5,Legendary,,3,BlastGiraffe,BlastGiraffe,350,600/s,90k,OK,,,Red Carpet,
+48,5,Legendary,,4,Pindom,Pindom,360,700/s,125k,OK,,,Red Carpet,
+49,5,Legendary,,5,NeuroRodX,NeuroRodX,370,800/s,150k,OK,,,Red Carpet,
+50,5,Legendary,,6,SlamPlum,SlamPlum,380,900/s,175k,OK,,,Red Carpet,
+51,5,Legendary,,7,CrackCrackCrackers,CrackCrackCrackers,390,1000/s,200k,OK,,,Red Carpet,
+52,5,Legendary,,8,CassinoVerone,CassinoVerone,400,1100/s,230k,OK,,,Red Carpet,
+53,5,Legendary,,9,LosSeatos,LosSeatos,410,1200/s,260k,OK,,,Red Carpet,
+54,5,Legendary,,10,KingKingKingLarila,KingKingKingLarila,420,1300/s,290k,OK,,,Red Carpet,
+55,5,Legendary,,11,BiscuitMuscat,BiscuitMuscat,430,1400/s,320k,OK,,,Red Carpet,
+56,5,Legendary,,12,CleantElefante,CleantElefante,440,1500/s,350k,OK,,,Red Carpet,
+57,5,Legendary,,13,BriBriBicusDicusDeBicusDeDicus,BriBriBicusDicusDeBicusDeDicus,400,1000/s,250k,OK,,,Red Carpet,
+58,5,Legendary,,14,GlorboFruttodrillo,GlorboFruttodrillo,420,1200/s,300k,OK,,,Red Carpet,
+59,6,Mythic,,1,FrigoCamelo,FrigoCamelo,450,2000/s,400k,OK,,,Red Carpet,
+60,6,Mythic,,2,BombardiroCrocodilo,BombardiroCrocodilo,460,3000/s,900k,OK,,,Red Carpet,
+61,6,Mythic,,3,CheeseCavaliere,CheeseCavaliere,470,4000/s,1.4m,OK,,,Red Carpet,
+62,6,Mythic,,4,RhinoToasterino,RhinoToasterino,480,5000/s,1.9m,OK,,,Red Carpet,
+63,6,Mythic,,5,LineaFantasma,LineaFantasma,490,6000/s,2.4m,OK,,,Red Carpet,
+64,6,Mythic,,6,ChikuchikuPenguin,ChikuchikuPenguin,500,7000/s,2.9m,OK,,,Red Carpet,
+65,6,Mythic,,7,GrowlProwl,GrowlProwl,510,8000/s,3.4m,OK,,,Red Carpet,
+66,6,Mythic,,8,PiPiPiPapiPapi,PiPiPiPapiPapi,520,10000/s,3.9m,OK,,,Red Carpet,
+67,6,Mythic,,9,LosPindom,LosPindom,530,12000/s,4.4m,OK,,,Red Carpet,
+68,6,Mythic,,10,LosCrimos,LosCrimos,540,15000/s,4.6m,OK,,,Red Carpet,
+69,6,Mythic,,11,MaddingBoltin,MaddingBoltin,550,17000/s,4.8m,OK,,,Red Carpet,
+70,6,Mythic,,12,RaiderSpider,RaiderSpider,560,20000/s,5m,OK,,,Red Carpet,
+71,6,Mythic,,13,Antonio,Antonio,450,2000/s,450k,OK,,,Mythic Box,70%
+72,6,Mythic,,14,SignoreCarapace,SignoreCarapace,500,15000/s,1m,OK,,,Mythic Box,25%
+73,6,Mythic,,15,TarariTarara,TarariTarara,580,20000/s,4m,OK,,,Mythic Box,5%
+74,6,Mythic,,16,LosShakeSparrow,LosShakeSparrow,500,7000/s,2.9m,OK,,,Los Admin Box,27.50%
+75,6,Mythic,,17,IcharinnaMatchanova,IcharinnaMatchanova,450,2500/s,500k,OK,,,Fuse Machine,
+76,6,Mythic,,18,Alessio,Alessio,550,5500/s,3m,OK,,,Fuse Machine,
+77,6,Mythic,,19,Squalanana,Squalanana,580,9000/s,4.5m,OK,,,Fuse Machine,
+78,6,Mythic,,20,CappuccinaModelina,CappuccinaModelina,620,33000/s,10m,OK,,,"Fuse Machine,Stork Box",20%
+79,6,Mythic,,21,666,666,666,66600/s,6m,OK,,,Fuse Machine,
+80,6,Mythic,,22,Matteo,Matteo,560,7000/s,3m,OK,,,Admin Box,50%
+81,6,Mythic,,23,EccoCavalloVirtuoso,EccoCavalloVirtuoso,655,65000/s,6.5m,⚠️要確認,,,Red Carpet,
+82,7,BrainrotGod,,1,OdinDinDinDun,OdinDinDinDun,570,22000/s,5.5m,OK,,,Red Carpet,
+83,7,BrainrotGod,,2,BallerinoLololo,BallerinoLololo,580,40000/s,8.5m,OK,,,Red Carpet,
+84,7,BrainrotGod,,3,GirafaCeleste,GirafaCeleste,590,58000/s,11.5m,OK,,,Red Carpet,
+85,7,BrainrotGod,,4,RisingHedgehog,RisingHedgehog,600,75000/s,14.5m,OK,,,Red Carpet,
+86,7,BrainrotGod,,5,YamatoCrow,YamatoCrow,630,128000/s,23.5m,OK,,,Red Carpet,
+87,7,BrainrotGod,,6,HungryNebaneba,HungryNebaneba,620,110000/s,20.5m,OK,,,Red Carpet,
+88,7,BrainrotGod,,7,TralaleroTralala,TralaleroTralala,610,92000/s,17.5m,OK,,,Red Carpet,
+89,7,BrainrotGod,,8,GridSquid,GridSquid,640,146000/s,26.5m,OK,,,Red Carpet,
+90,7,BrainrotGod,,9,BangGangPirats,BangGangPirats,650,165000/s,29.5m,OK,,,Red Carpet,
+91,7,BrainrotGod,,10,BombardinoSloth-o-Meter,BombardinoSloth-o-Meter,660,185000/s,32.5m,OK,,,Red Carpet,
+92,7,BrainrotGod,,11,TakoyakiBoy,TakoyakiBoy,670,205000/s,35.5m,OK,,,Red Carpet,
+93,7,BrainrotGod,,12,SheepSunRide,SheepSunRide,675,255000/s,45.5m,OK,,,Red Carpet,
+94,7,BrainrotGod,,13,BulbitoBanditoTraktorito,BulbitoBanditoTraktorito,680,225000/s,38.5m,⚠️要確認,,,Red Carpet,
+95,7,BrainrotGod,,14,PopPopPopJulop,PopPopPopJulop,680,225000/s,38.5m,OK,,,Red Carpet,
+96,7,BrainrotGod,,15,GuruBombSnail,GuruBombSnail,690,245000/s,41.5m,OK,,,Red Carpet,
+97,7,BrainrotGod,,16,Karkirkurkarkarkarkurkukur,Karkirkurkarkarkarkurkukur,700,260000/s,44m,⚠️要確認,,,Red Carpet,
+98,7,BrainrotGod,,17,67,67,710,320000/s,67m,⚠️変更済み,,,Red Carpet,
+99,7,BrainrotGod,,18,OniMelono,OniMelono,720,300000/s,50m,OK,,,Red Carpet,
+100,7,BrainrotGod,,19,TortuginiDragonfruitini,TortuginiDragonfruitini,600,22000/s,5.5m,OK,,,BrainrotGod Box,70%
+101,7,BrainrotGod,,20,ByeByeMomototototo,ByeByeMomototototo,720,166000/s,30m,⚠️要確認,,,BrainrotGod Box,27%
+102,7,BrainrotGod,,21,Pakrahmatmamat,Pakrahmatmamat,810,320000/s,60m,OK,,,BrainrotGod Box,3%
+103,7,BrainrotGod,,22,BeepBeepBeep,BeepBeepBeep,800,300000/s,45m,OK,,,Admin Box,25%
+104,7,BrainrotGod,,23,LasGatito,LasGatito,650,250000/s,25m,OK,,,Los Admin Box,26%
+105,7,BrainrotGod,,24,LosBombardilitos,LosBombardilitos,750,500000/s,50m,OK,,,Los Admin Box,15%
+106,8,BrainrotGod,,1,BubuGiraRabit,BubuGiraRabit,600,50K/s,10m,OK,,,Fuse Machine,
+107,8,BrainrotGod,,2,TartarugaDinosauro,TartarugaDinosauro,700,300K/s,30m,OK,,,Fuse Machine,
+108,8,BrainrotGod,,3,TartarugaCisterna,TartarugaCisterna,750,550K/s,50m,OK,,,Fuse Machine,
+109,8,BrainrotGod,,4,TrenzostruzzoTurbo4000,TrenzostruzzoTurbo4000,780,780K/s,780m,OK,,,Fuse Machine,
+110,8,BrainrotGod,,5,NNNSahur,NNNSahur,800,1M/s,100m,OK,,,Fuse Machine,
+111,9,Secret,5,1,WearBear,WearBear,890,350K/s,130m,⚠️要確認,,,Red Carpet,
+112,9,Secret,5,2,LaVacaSaturnoSaturnita,LaVacaSaturnoSaturnita,880,450K/s,150m,OK,,,Red Carpet,
+113,9,Secret,5,3,GraipussMedussi,GraipussMedussi,870,600K/s,150m,⚠️要確認,,,Red Carpet,
+114,9,Secret,5,4,AngelEye,AngelEye,880,850K/s,250m,OK,,,Red Carpet,
+115,9,Secret,5,5,PeaceKeeper,PeaceKeeper,850,1M/s,300m,OK,,,Red Carpet,
+116,9,Secret,5,6,ChicleteiraBicicleteira,ChicleteiraBicicleteira,840,1.5M/s,450m,OK,,,Red Carpet,
+117,9,Secret,5,7,PotHotspot,PotHotspot,830,2M/s,650m,⚠️要確認,,,Red Carpet,
+118,9,Secret,5,8,OkamemmenSaphool,OkamemmenSaphool,820,2.5M/s,900m,⚠️要確認,,,Red Carpet,
+119,9,Secret,5,9,UnkwonThroneDrone,UnkwonThroneDrone,800,3.33M/s,1.5b,⚠️要確認,,,Red Carpet,
+120,9,Secret,5,10,REJBQNBQN,REJBQNBQN,900,5M/s,2b,⚠️要確認,,,Red Carpet,
+121,9,Secret,5,11,ElZapatoGalactico,ElZapatoGalactico,810,6.5M/s,3b,OK,,,Red Carpet,
+122,9,Secret,5,12,PiccioneMacchina,PiccioneMacchina,850,900K/s,270m,OK,,,Red Carpet,
+123,9,Secret,5,13,MechanicalCombination,MechanicalCombination,890,4M/s,4b,OK,,,Red Carpet,
+124,9,Secret,5,14,RollRollMaestro,RollRollMaestro,880,5.5M/s,2b,OK,,,Red Carpet,
+125,9,Secret,5,15,RamenMantenMountain,RamenMantenMountain,870,1.2M/s,850m,⚠️要確認,,,Red Carpet,
+126,9,Secret,5,16,StarStar,StarStar,845,2M/s,550m,OK,,,Red Carpet,
+127,9,Secret,5,17,JukeJukePanda,JukeJukePanda,885,1M/s,230m,⚠️要確認,,,Red Carpet,
+128,9,Secret,5,18,LovecaSaturnoSaturnita,LovecaSaturnoSaturnita,1014,1M/s,200m,⚠️要確認,,,Valentine Box,70%
+129,9,Secret,5,19,SherlockSpine,SherlockSpine,960,15M/s,10b,⚠️変更済み,,,Secret Box,90%
+130,9,Secret,5,20,LosPhiPhiCitos,LosPhiPhiCitos,810,1M/s,1b,⚠️要確認,,,Los Admin Box,12.50%
+131,9,Secret,5,21,TritontontontonSahur,TritontontontonSahur,950,10M/s,5b,⚠️要確認,,,Fuse Machine,
+132,9,Secret,5,22,BrrEsTehPatipum,BrrEsTehPatipum,850,2.5M/s,1b,⚠️要確認,,,Fuse Machine,
+133,9,Secret,5,23,TralaleroCocochini,TralaleroCocochini,700,550K/s,120m,❓不明,,,Pirate Box,50%
+134,9,Secret,5,24,CacasitoSatelito,CacasitoSatelito,850,1M/s,150m,❓不明,,,Red Carpet,
+135,10,Secret,4,1,TungTungTungMahasahur,TungTungTungMahasahur,950,11M/s,10b,OK,,,Red Carpet,
+136,10,Secret,4,2,SuperSausage,SuperSausage,940,15M/s,8b,OK,,,Red Carpet,
+137,10,Secret,4,3,KetupatKepat,KetupatKepat,930,20M/s,12b,OK,,,Red Carpet,
+138,10,Secret,4,4,LaGrandeCombinesion,LaGrandeCombinesion,920,25M/s,17b,OK,,,Red Carpet,
+139,10,Secret,4,5,EsokSekolah,EsokSekolah,910,40M/s,25b,OK,,,Red Carpet,
+140,10,Secret,4,6,Neogas,Neogas,960,13M/s,14b,OK,,,Red Carpet,
+141,10,Secret,4,7,BonJockey,BonJockey,925,35M/s,12b,OK,,,Red Carpet,
+142,10,Secret,4,8,KillStream,KillStream,935,56M/s,15b,OK,,,Red Carpet,
+143,10,Secret,4,9,LovePotHotspot,LovePotHotspot,1214,4M/s,1b,⚠️要確認,,,Valentine Box,20%
+144,10,Secret,4,10,LasTralaleritas,LasTralaleritas,900,5M/s,2.5b,OK,,,Los Admin Box,10%
+145,10,Secret,4,11,LuckyLuckyLucky,LuckyLuckyLucky,777,7.77M/s,7b,OK,,,Fuse Machine,
+146,10,Secret,4,12,ChicleterinaBicicleterina,ChicleterinaBicicleterina,945,45M/s,9b,OK,,,Fuse Machine,
+147,10,Secret,4,13,OrcaleroOrcala,OrcaleroOrcala,900,3M/s,1b,⚠️要確認,,,Pirate Box,40%
+148,10,Secret,4,14,KravilinoCekicino,KravilinoCekicino,970,15M/s,15b,⚠️要確認,,,Red Carpet,
+149,11,Secret,3,1,WabiSabi,WabiSabi,1200,50M/s,35b,⚠️要確認,,,Red Carpet,
+150,11,Secret,3,2,MoneyMoneyPuggy,MoneyMoneyPuggy,1100,70M/s,100b,⚠️要確認,,,Red Carpet,
+151,11,Secret,3,3,CaptainCat,CaptainCat,1000,100M/s,35b,⚠️要確認,,,Red Carpet,
+152,11,Secret,3,4,RamalabiNight,RamalabiNight,1250,90M/s,20b,❓不明,,,Red Carpet,
+153,11,Secret,3,5,Aduh9AprilUdahDekat,Aduh9AprilUdahDekat,1279,90M/s,23b,⚠️要確認,,,Red Carpet,
+154,11,Secret,3,6,AgarriniLaPalini,AgarriniLaPalini,990,950M/s,290m,⚠️要確認,,,Admin Box,15%
+155,11,Secret,3,7,LoveKetupatKepat,LoveKetupatKepat,1414,40M/s,12b,⚠️要確認,,,Valentine Box,8.50%
+156,11,Secret,3,8,IlSacroCabrospaghettiMistico,IlSacroCabrospaghettiMistico,1300,50M/s,50b,⚠️要確認,,,Secret Box,8.50%
+157,11,Secret,3,9,LosTralaleritos,LosTralaleritos,1230,15M/s,7.5b,⚠️要確認,,,Los Admin Box,5.50%
+158,11,Secret,3,10,JobJobJobSahur,JobJobJobSahur,1000,50M/s,10b,⚠️要確認,,,Fuse Machine,
+159,11,Secret,3,11,ClickerinoCrabo,ClickerinoCrabo,1050,60M/s,21b,⚠️要確認,,,Fuse Machine,
+160,11,Secret,3,12,PataPataPatapim,PataPataPatapim,1300,30M/s,15b,⚠️要確認,,,Patapim Box,5%
+161,11,Secret,3,13,FrizzoliniMammuthini,FrizzoliniMammuthini,1150,87M/s,20b,⚠️要確認,,,Red Carpet,
+162,11,Secret,3,14,ShellFish,ShellFish,1200,60M/s,10b,❓不明,,ShellFish,Pirate Box,7%
+163,11,Secret,3,15,ShtekeritoelBulbonito,ShtekeritoelBulbonito,1150,60M/s,50b,❓不明,,,Red Carpet,
+164,11,Secret,3,16,BambooBambooSahur,BambooBambooSahur,1300,75M/s,65b,❓不明,,BambooSahur,Kaguya Box,50%
+165,11,Secret,3,17,Kappanin,Kappanin,1350,55M/s,10b,⚠️要確認,Y,,Demon Box,10%
+166,12,Secret,2,1,SpaghettiTualetti,SpaghettiTualetti,1600,125M/s,120b,OK,,,Red Carpet,
+167,12,Secret,2,2,PizzaLizza,PizzaLizza,1500,170M/s,150b,OK,,,Red Carpet,
+168,12,Secret,2,3,GaramaAndMadundung,GaramaAndMadundung,1400,220M/s,220b,OK,,,Red Carpet,
+169,12,Secret,2,4,VampireEmpire,VampireEmpire,1550,150M/s,170b,OK,,,Red Carpet,
+170,12,Secret,2,5,SweetDragonRoll,SweetDragonRoll,1630,130M/s,290b,OK,,,Red Carpet,
+171,12,Secret,2,6,ThungThungThungSahur,ThungThungThungSahur,1100,30M/s,5.5b,⚠️要確認,,,"Admin Box,Stork Box",8.50%
+172,12,Secret,2,7,LoveSpaghettiTualetti,LoveSpaghettiTualetti,1814,250M/s,25b,⚠️要確認,,,Valentine Box,1%
+173,12,Secret,2,8,RangRingBus,RangRingBus,1700,100M/s,100b,⚠️要確認,,,Secret Box,1%
+174,12,Secret,2,9,LasVaquitasSaturnitas,LasVaquitasSaturnitas,1580,50M/s,10b,⚠️要確認,,,Los Admin Box,2%
+175,12,Secret,2,10,Los67,Los67,1750,150M/s,50b,⚠️要確認,,,Los Admin Box,1%
+176,12,Secret,2,11,VulturinoSkeletono,VulturinoSkeletono,1700,300M/s,20b,⚠️要確認,,,Fuse Machine,
+177,12,Secret,2,12,Tralaledon,Tralaledon,1515,165M/s,95b,⚠️要確認,,,Fuse Machine,
+178,12,Secret,2,13,SwaggyBros,SwaggyBros,1300,300M/s,36b,⚠️要確認,,,Fuse Machine,
+179,12,Secret,2,14,ToToToSahur,ToToToSahur,1800,55M/s,40b,⚠️要確認,,,Admin Box,1%
+180,12,Secret,2,15,BrrBrrPatapimKing,BrrBrrPatapimKing,1800,70M/s,20b,⚠️要確認,,,Patapim Box,1%
+181,12,Secret,2,16,SSSSword,SSSSword,1450,150M/s,15b,⚠️要確認,,,Legend Sword,
+182,12,Secret,2,17,NuclearoDinossauro,NuclearoDinossauro,1700,180M/s,50b,⚠️要確認,,,Red Carpet,
+183,12,Secret,2,18,BarrelBoneCannon,BarrelBoneCannon,1500,170M/s,25b,❓不明,,,Pirate Box,3%
+184,12,Secret,2,19,SteerHandler,SteerHandler,1600,180M/s,35b,❓不明,,,Pirate Box,2%
+185,12,Secret,2,20,MosasasaSaurus,MosasasaSaurus,1700,190M/s,45b,❓不明,,,Pirate Box,1%
+186,12,Secret,2,21,SushiAndTempura,SushiAndTempura,1450,240M/s,250b,❓不明,,Sushi,Red Carpet,
+187,12,Secret,2,22,MoonyMoonyGnom,MoonyMoonyGnom,1500,155M/s,120b,❓不明,,,Kaguya Box,30%
+188,12,Secret,2,23,Los Hotspotsitos,Los Hotspotsitos,1500,170M/s,25b,❓不明,,LosHotspotsitos,Pot Box,5%
+189,13,Secret,1,1,DragonCannelloni,DragonCannelloni,2300,300M/s,300b,OK,,,Red Carpet,
+190,13,Secret,1,2,CapitanoMoby,CapitanoMoby,1900,250M/s,290b,OK,,,Red Carpet,
+191,13,Secret,1,3,ThunderDancerSpider,ThunderDancerSpider,1850,200M/s,200b,OK,,,Red Carpet,
+192,13,Secret,1,4,Cerberus,Cerberus,2200,270M/s,270b,OK,,,Red Carpet,
+193,13,Secret,1,5,TictacTictacSahur,TictacTictacSahur,1800,230M/s,230b,OK,,,Admin Box,0.50%
+194,13,Secret,1,6,LoveDragon,LoveDragon,2314,500M/s,100b,⚠️要確認,,,Valentine Box,0.50%
+195,13,Secret,1,7,LosEsokSekolitos,LosEsokSekolitos,2050,350M/s,75b,⚠️要確認,,,Los Admin Box,0.50%
+196,13,Secret,1,8,Eviledon,Eviledon,2222,222M/s,222b,OK,,,Fuse Machine,
+197,13,Secret,1,9,LaSecretCombinasion,LaSecretCombinasion,2100,210M/s,150b,⚠️要確認,,,"Legend Sword,Ritutal",
+198,13,Secret,1,10,PirateKingSkeleton,PirateKingSkeleton,1850,250M/s,70b,❓不明,,,Pirate Box,0.50%
+199,13,Secret,1,11,MochiMochiRabbit,MochiMochiRabbit,1900,200M/s,220b,❓不明,,,Kaguya Box,15%
+200,13,Secret,1,12,TitanPatapim,TitanPatapim,2200,250M/s,270b,❓不明,,,Ritutal,
+201,13,Secret,1,13,BallerinaValkyrie,BallerinaValkyrie,2200,250M/s,270b,❓不明,,,Ritutal,
+202,13,Secret,1,14,DragonHotspot,DragonHotspot,2300,270M/s,290b,❓不明,,,Ritutal,
+203,13,Secret,1,15,DobonBozu,DobonBozu,2000,230M/s,120b,⚠️要確認,Y,,Demon Box,3%
+204,13,Secret,1,16,Tart Bros,Tart Bros,1984,250M/s,50b,❓不明,,,Stork Box,1%
+205,14,Boss,,1,DinoWasharo,DinoWasharo,2500,900M/s,900b,OK,,,Boss Box,1%
+206,14,Boss,,2,GOATGOATBANGBANG,GOATGOATBANGBANG,2600,1B/s,1t,OK,,,Boss Box,1%
+207,14,Boss,,3,GraveRaider,GraveRaider,2700,600M/s,600b,OK,,,Boss Box,1%
+208,14,Boss,,4,Floraken,Floraken,2800,500M/s,500b,OK,,,Boss Box,1%
+209,14,Boss,,5,BottlinoHidrino,BottlinoHidrino,2900,800M/s,800b,OK,,,Boss Box,1%
+210,14,Boss,,6,GlacialManus,GlacialManus,3000,550M/s,550b,OK,,,Boss Box,1%
+211,14,Boss,,7,Orcaledon,Orcaledon,3333,3B/s,333b,OK,,,Boss Box,1%
+212,14,Boss,,8,GrandThousandHands,GrandThousandHands,3300,1.2B/s,1.2t,⚠️要確認,,,Fuse Machine,
+213,14,Boss,,9,BattleTurtle,BattleTurtle,3600,1.5B/s,1.5t,OK,,,Boss+,
+214,14,Boss,,10,Gorgonzilla,Gorgonzilla,3800,1.8B/s,1.8t,OK,,,Boss+,
+215,14,Boss,,11,DearDeer,DearDeer,4000,2B/s,2t,OK,,,Boss+,
+216,14,極Boss,,12,HackTack,HackTack,6500,2.5B/s,2t,⚠️要確認,,,Ritutal,
+217,14,極Boss,,13,ZumbariRadinibus,Anubis,7000,3B/s,3t,OK,,,Ritutal,
+218,14,百鬼,,14,Gozumezu,Gozumezu,2750,900M/s,1.6t,OK,Y,,Demon Box,1%
+219,14,百鬼,,15,Nioh,Nioh,3000,1.3B/s,1.75t,⚠️要確認,Y,,Demon Box,0.50%
+220,14,百鬼,,16,Nue,Nue,3350,1.65B/s,1.85t,OK,Y,,Demon Box,0.25%
+221,14,百鬼,,17,百鬼,百鬼,3500,2B/s,2t,OK,Y,,Demon Box,0.10%
+222,14,課金,,18,Kaguya,Kaguya,3000,1B/s,1t,OK,,,Kaguya Box,5%
+223,15,Missing,,1,StrawberryElephant,StrawberryElephant,10000,5B/s,5t,⚠️要確認,,,Red Carpet,
+224,15,Missing,,2,Meowl,Meowl,7500,2.5B/s,2.5t,⚠️要確認,,,Red Carpet,
