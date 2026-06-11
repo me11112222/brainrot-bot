@@ -226,24 +226,23 @@ def scale_amount(s, mult, per_s=False):
 
 
 def compute(char, skin="Default", traits=0, star=0):
-    """Trait(a)・スキン(b)・★Level(c)を合成した最終ステータスを返す。
-    通常: base × a × b / レベル有: base × a × (b + c − 1)
+    """合成倍率 = (スキンb ＋ ★c − 1) に Trait を加算(戦闘 +0.1/個, 生産 +1/個)。
+    価格は Trait を加えない。戦闘力は切り捨て(floor)。
     """
-    gm, bm = GAUGE_MULT.get(skin, (1.0, 1.0))           # b
-    a_b = 1 + TRAIT_BATTLE_PER * traits                 # a(戦闘)
-    a_m = 1 + TRAIT_MONEY_PER * traits                  # a(生産)
+    gm, bm = GAUGE_MULT.get(skin, (1.0, 1.0))           # b ($倍率, 戦闘倍率)
     if star in STAR_MULT:
         sm_m, sm_b = STAR_MULT[star]                    # c
-        batt_mult = a_b * (bm + sm_b - 1)
-        money_mult = a_m * (gm + sm_m - 1)
-        price_mult = (gm + sm_m - 1)        # 価格はTrait(a)を掛けない
+        base_b = bm + sm_b - 1
+        base_m = gm + sm_m - 1
     else:
-        batt_mult = a_b * bm
-        money_mult = a_m * gm
-        price_mult = gm                     # 価格はTrait(a)を掛けない
+        base_b = bm
+        base_m = gm
+    batt_mult = base_b + TRAIT_BATTLE_PER * traits      # Trait加算(+0.1/個)
+    money_mult = base_m + TRAIT_MONEY_PER * traits      # Trait加算(+1/個)
+    price_mult = base_m                                 # 価格はTrait無し
 
     atk = char.get("attack")
-    battle = f"{round(atk * batt_mult):,}" if isinstance(atk, (int, float)) else "—"
+    battle = f"{int(atk * batt_mult + 1e-9):,}" if isinstance(atk, (int, float)) else "—"
     prod = scale_amount(char.get("production"), money_mult, per_s=True)
     price = scale_amount(char.get("price"), price_mult, per_s=False)
     return battle, prod, price, batt_mult, money_mult
