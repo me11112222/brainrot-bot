@@ -57,8 +57,15 @@ RARITY_META = {
 }
 
 # 変異(Trait): キー → 絵文字。個別に選択可・最大3・効果は同一
+# 既定はunicode。.env の TRAIT_EMOJIS でDiscordカスタム絵文字に差し替え可:
+#   TRAIT_EMOJIS=Patapim=<:Patapim:123>,Hyper=<:Hyper:456>,Hotspot=<:Hotspot:789>
 TRAITS = [("Patapim", "👃"), ("Hyper", "💑"), ("Hotspot", "📱")]
-TRAIT_EMOJI = dict(TRAITS)
+TRAIT_EMOJI = {k: v for k, v in TRAITS}
+for _pair in os.getenv("TRAIT_EMOJIS", "").split(","):
+    if "=" in _pair:
+        _k, _v = _pair.split("=", 1)
+        if _k.strip() in TRAIT_EMOJI and _v.strip():
+            TRAIT_EMOJI[_k.strip()] = _v.strip()
 
 # レア度 → ANSI前景色コード（Discordのansiコードブロックで色付き表示できる8色）
 # 30:gray 31:red 32:green 33:yellow 34:blue 35:pink 36:cyan 37:white
@@ -264,19 +271,26 @@ def result_embed(char, skin="Default", trait_keys=None, star=0):
     battle, prod, price, _b, _m = compute(char, skin, len(trait_keys), star)
     esc = chr(27)
     rc = RARITY_ANSI.get(char["rarity"], "37")
-    # 名前をレア度色に。ステータスは1行ずつ色付き（攻撃=赤/生産=黄/価格=緑）
-    # 並び順: 名前 → ★(濃縮) → Trait → ⚔/💰/💵
-    lines = [f"{esc}[1;{rc}m{char['name']}{esc}[0m"]
+
+    def block(lines):
+        return "```ansi\n" + "\n".join(lines) + "\n```"
+
+    # 並び順: 名前(レア度色) → ★(濃縮) → Trait → ⚔(赤)/💰(黄)/💵(緑)
+    top = [f"{esc}[1;{rc}m{char['name']}{esc}[0m"]
     if star:
-        lines.append("★" * star)
-    if trait_keys:
-        lines.append(" ".join(TRAIT_EMOJI.get(k, "") for k in trait_keys))
-    lines += [
+        top.append("★" * star)
+    stats = [
         f"⚔️ {esc}[1;31m{battle}{esc}[0m",
         f"💰 {esc}[1;33m{prod}{esc}[0m",
         f"💵 {esc}[1;32m{price}{esc}[0m",
     ]
-    desc = "```ansi\n" + "\n".join(lines) + "\n```"
+    if trait_keys:
+        # Traitはコードブロックの外（カスタム絵文字を画像表示するため）
+        trait_line = " ".join(TRAIT_EMOJI.get(k, "") for k in trait_keys)
+        desc = block(top) + "\n" + trait_line + "\n" + block(stats)
+    else:
+        desc = block(top + stats)
+
     e = discord.Embed(description=desc, color=meta["color"])
     sk = char.get("skins") or {}
     fn = sk.get(skin) or char.get("image")
@@ -296,6 +310,7 @@ class IndexView(discord.ui.View):
         self.trait_keys = []      # 選択中のTrait（Patapim/Hyper/Hotspot）
         self.star = 0
         self.page = 0
+        self.search = None        # 検索結果リスト（Noneなら検索してない）
         self.build()
 
     def _reset_custom(self):
@@ -312,34 +327,44 @@ class IndexView(discord.ui.View):
             return False
         return True
 
-    # 表示中レア度のキャラ一覧
-    def rarity_chars(self):
-        items = [c for c in CHARS if c["rarity"] == self.rarity]
-        items.sort(key=sort_key)
-        return items
+    # いま一覧表示する対象（検索結果 or レア度のキャラ）
+    def current_list(self):
+        if self.search is not None:
+            return self.search
+        if self.rarity:
+            items = [c for c in CHARS if c["rarity"] == self.rarity]
+            items.sort(key=sort_key)
+            return items
+        return []
 
     def page_count(self):
-        n = len(self.rarity_chars())
+        n = len(self.current_list())
         return max(1, (n + CARD_PER - 1) // CARD_PER)
 
     def build(self):
         self.clear_items()
         if self.char is not None:
-            # 結果モード: スキン / Trait / ★ 切替＋戻る
-            self.add_item(self._skin_select())
-            self.add_item(self._trait_select())
+            # 結果モード: ★ → Trait → スキン → 戻る
             self.add_item(self._star_select())
+            self.add_item(self._trait_select())
+            self.add_item(self._skin_select())
             self.add_item(self._back_btn())
         else:
-            # 参照モード: レア度選択（＋レア度決定後はキャラ選択カード）
+            # 参照モード: レア度選択 ＋ 名前検索（＋一覧が出たらキャラ選択カード）
             self.add_item(self._rarity_select())
-            if self.rarity:
+            items = self.current_list()
+            if items:
                 pages = self.page_count()
                 self.page = min(self.page, pages - 1)
                 self.add_item(self._char_select())
                 if pages > 1:
                     self.add_item(self._page_btn("◀ Prev", -1, self.page <= 0))
                     self.add_item(self._page_btn("Next ▶", +1, self.page >= pages - 1))
+                self.add_item(self._search_btn(row=2))
+                if self.search is not None:
+                    self.add_item(self._clear_btn(row=2))
+            else:
+                self.add_item(self._search_btn(row=1))
 
     def render(self):
         """現在の状態に応じた edit_message 用 kwargs を返す。"""
@@ -348,7 +373,7 @@ class IndexView(discord.ui.View):
             e, f = result_embed(self.char, self.skin, self.trait_keys, self.star)
             return dict(content=None, embeds=[e],
                         attachments=[f] if f else [], view=self)
-        if not self.rarity:
+        if not self.current_list():
             return dict(content=None, embeds=[self.intro_embed()],
                         attachments=[], view=self)
         content, embeds, files = self.card_payload()
@@ -359,16 +384,19 @@ class IndexView(discord.ui.View):
 
     # ②キャラ一覧をカード（サムネ画像）で並べる
     def card_payload(self):
-        items = self.rarity_chars()
+        items = self.current_list()
         pages = self.page_count()
         self.page = min(self.page, pages - 1)
         chunk = items[self.page * CARD_PER:(self.page + 1) * CARD_PER]
-        meta = rarity_meta(self.rarity)
-        content = (f"{meta['emoji']} **{self.rarity}** ({len(items)})"
-                   f"　Page {self.page + 1}/{pages}　— pick a number below")
-        embeds, files = [], []
+        if self.search is not None:
+            head = f"🔍 **Search results** ({len(items)})"
+        else:
+            m = rarity_meta(self.rarity)
+            head = f"{m['emoji']} **{self.rarity}** ({len(items)})"
+        content = f"{head}　Page {self.page + 1}/{pages}　— pick a number below"
+        embeds = []
         for i, c in enumerate(chunk, start=self.page * CARD_PER + 1):
-            e = discord.Embed(color=meta["color"])
+            e = discord.Embed(color=rarity_meta(c["rarity"])["color"])
             atk = c.get("attack")
             a = f"⚔{atk:,}" if isinstance(atk, (int, float)) else ""
             e.title = f"{i}. {c['name']}"
@@ -388,13 +416,14 @@ class IndexView(discord.ui.View):
 
         async def cb(interaction):
             self.rarity = sel.values[0]
+            self.search = None      # レア度を選んだら検索は解除
             self.page = 0
             await self._refresh(interaction)
         sel.callback = cb
         return sel
 
     def _char_select(self):
-        items = self.rarity_chars()
+        items = self.current_list()
         chunk = items[self.page * CARD_PER:(self.page + 1) * CARD_PER]
         opts = []
         for i, c in enumerate(chunk, start=self.page * CARD_PER + 1):
@@ -423,22 +452,30 @@ class IndexView(discord.ui.View):
         btn.callback = cb
         return btn
 
-    def _skin_select(self):
-        opts = [discord.SelectOption(label=s, emoji=SKIN_EMOJI.get(s),
-                                     default=(s == self.skin))
-                for s in avail_skins(self.char)]
-        sel = discord.ui.Select(placeholder="🎨 Skin (gauge)…", options=opts[:25], row=0)
+    def _star_select(self):       # 一番上
+        opts = [discord.SelectOption(label="No star", value="0", emoji="▫️",
+                                     default=(self.star == 0))]
+        for n in range(1, 6):
+            opts.append(discord.SelectOption(label="★" * n, value=str(n),
+                                             default=(self.star == n)))
+        sel = discord.ui.Select(placeholder="⭐ Star level…", options=opts, row=0)
 
         async def cb(interaction):
-            self.skin = sel.values[0]
+            self.star = int(sel.values[0])
             await self._refresh(interaction)
         sel.callback = cb
         return sel
 
-    def _trait_select(self):
-        opts = [discord.SelectOption(label=k, value=k, emoji=emo,
-                                     default=(k in self.trait_keys))
-                for k, emo in TRAITS]
+    def _trait_select(self):      # 2番目
+        opts = []
+        for k, _ in TRAITS:
+            emo = TRAIT_EMOJI.get(k)
+            try:
+                pe = discord.PartialEmoji.from_str(emo) if emo else None
+            except Exception:
+                pe = None
+            opts.append(discord.SelectOption(label=k, value=k, emoji=pe,
+                                             default=(k in self.trait_keys)))
         sel = discord.ui.Select(placeholder="✨ Traits (pick any)…", options=opts,
                                 min_values=0, max_values=len(TRAITS), row=1)
 
@@ -448,16 +485,14 @@ class IndexView(discord.ui.View):
         sel.callback = cb
         return sel
 
-    def _star_select(self):
-        opts = [discord.SelectOption(label="No star", value="0", emoji="▫️",
-                                     default=(self.star == 0))]
-        for n in range(1, 6):
-            opts.append(discord.SelectOption(label="★" * n, value=str(n),
-                                             default=(self.star == n)))
-        sel = discord.ui.Select(placeholder="⭐ Star level…", options=opts, row=2)
+    def _skin_select(self):       # 3番目
+        opts = [discord.SelectOption(label=s, emoji=SKIN_EMOJI.get(s),
+                                     default=(s == self.skin))
+                for s in avail_skins(self.char)]
+        sel = discord.ui.Select(placeholder="🎨 Skin (gauge)…", options=opts[:25], row=2)
 
         async def cb(interaction):
-            self.star = int(sel.values[0])
+            self.skin = sel.values[0]
             await self._refresh(interaction)
         sel.callback = cb
         return sel
@@ -472,13 +507,65 @@ class IndexView(discord.ui.View):
         btn.callback = cb
         return btn
 
-    # 最初の案内Embed（レア度未選択時）
+    def _search_btn(self, row=2):
+        btn = discord.ui.Button(label="Search", emoji="🔍",
+                                style=discord.ButtonStyle.success, row=row)
+
+        async def cb(interaction):
+            await interaction.response.send_modal(SearchModal(self))
+        btn.callback = cb
+        return btn
+
+    def _clear_btn(self, row=2):
+        btn = discord.ui.Button(label="Clear search",
+                                style=discord.ButtonStyle.secondary, row=row)
+
+        async def cb(interaction):
+            self.search = None
+            self.page = 0
+            await self._refresh(interaction)
+        btn.callback = cb
+        return btn
+
+    # 最初の案内Embed（一覧が無い時）
     def intro_embed(self):
         return discord.Embed(
             title="📖 Fight Index",
-            description="Pick a **rarity** from the menu below.\n"
-                        "(or use `/index <name>` to jump straight to a character)",
+            description="① Pick a **rarity** from the menu, or\n"
+                        "② tap **🔍 Search** to find a character by name.",
             color=0x4f8ef7)
+
+
+# ── 名前検索モーダル ───────────────────────────────
+class SearchModal(discord.ui.Modal, title="Search by name"):
+    query = discord.ui.TextInput(label="Character name",
+                                 placeholder="Type the first letters… (e.g. Tral)",
+                                 required=True, max_length=50)
+
+    def __init__(self, view: "IndexView"):
+        super().__init__()
+        self.iview = view
+
+    async def on_submit(self, interaction: discord.Interaction):
+        q = str(self.query.value).strip().lower()
+        # 頭文字ヒット優先 → 無ければ部分一致
+        matches = [c for c in CHARS if c["name"].lower().startswith(q)]
+        if not matches:
+            matches = [c for c in CHARS if q in c["name"].lower()]
+        matches.sort(key=sort_key)
+        if not matches:
+            await interaction.response.send_message(
+                f"No character matches \"{self.query.value}\".", ephemeral=True)
+            return
+        self.iview.search = matches
+        self.iview.page = 0
+        if len(matches) == 1:
+            self.iview.char = matches[0]
+            self.iview._reset_custom()
+            record_view(interaction.user.id, matches[0])
+        else:
+            self.iview.char = None
+        await interaction.response.edit_message(**self.iview.render())
 
 
 # ── 常駐パネル（チャンネルに置くボタン。押すと本人だけに図鑑が開く）──
