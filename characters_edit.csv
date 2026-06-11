@@ -198,8 +198,8 @@ Eviledon,Secret,1,2222,222M/s,222b,Fuse Machine,,,Eviledon
 LaSecretCombinasion,Secret,1,2100,210M/s,150b,"Legend Sword,Ritutal",,,LaSecretCombinasion
 PirateKingSkeleton,Secret,1,1850,250M/s,70b,Pirate Box,0.50%,,PirateKingSkeleton
 MochiMochiRabbit,Secret,1,1900,200M/s,220b,Kaguya Box,15%,,MochiMochiRabbit
-TitanPatapim,Secret,1,2200,250M/s,270b,Ritutal,,,TitanPatapim
-BallerinaValkyrie,Secret,1,2200,250M/s,270b,Ritutal,,,BallerinaValkyrie
+TitanPatapim,Unknown,1,2200,250M/s,270b,Ritutal,,,TitanPatapim
+BallerinaValkyrie,Unknown,1,2200,250M/s,270b,Ritutal,,,BallerinaValkyrie
 DragonHotspot,Secret,1,2300,270M/s,290b,Ritutal,,,DragonHotspot
 DobonBozu,Secret,1,2000,230M/s,120b,Demon Box,3%,Y,DobonBozu
 Tart Bros,Secret,1,1984,250M/s,50b,Stork Box,1%,,TartBros
@@ -219,24 +219,21 @@ Anubis,Ultimate Boss,,7000,3B/s,3t,Ritutal,,,ZumbariRadinibus
 Gozumezu,YokaiBoss,,2750,900M/s,1.6t,Demon Box,1%,Y,GozuMezu
 Nioh,YokaiBoss,,3000,1.3B/s,1.75t,Demon Box,0.50%,Y,Nioh
 Nue,YokaiBoss,,3350,1.65B/s,1.85t,Demon Box,0.25%,Y,Nue
-百鬼,YokaiBoss,,3500,2B/s,2t,Demon Box,0.10%,Y,
 Kaguya,Boss,,3000,1B/s,1t,Kaguya Box,5%,,Kaguya
 StrawberryElephant,Missing,,10000,5B/s,5t,Red Carpet,,,StrawberryElephant
 Meowl,Missing,,7500,2.5B/s,2.5t,Red Carpet,,,
-MiaoMiaoMahitono,Secret,,,,,,,,MiaoMiaoMahitono
-TEKITOCOWCAT,Secret,,,,,,,,TEKITOCOWCAT
-LosLaLaLaYawara,Secret,,,,,,,,LosLaLaLaYawara
-TAROANDKEI,Secret,,,,,,,,TAROANDKEI
-NEONCHAIN,Secret,,,,,,,,NEONCHAIN
-GTL35,Secret,,,,,,,,GTL35
-MrBriefinDollZ,Secret,,,,,,,,MrBriefinDollZ
-SariniSpongini,Secret,,,,,,,,SariniSpongini
-TATATATAKUMAN,Secret,,,,,,,,TATATATAKUMAN
-JAMJAMJAMSahur,Secret,,,,,,,,JAMJAMJAMSahur
-ZataTV,Secret,,,,,,,,ZataTV
-Carloo,BrainrotGod,,,,,,,,Carloo
-SorrySorrySahur,Boss,,,,,,,,SorrySorrySahur
-RedEvilJack,Unknown,,,,,,,,RedEvilJack
-Ferinsini,Unknown,,,,,,,,Ferinsini
-OverlordOf100Spirits,Unknown,,,,,,,,OverlordOf100Spirits
-HyperRots,Unknown,,,,,,,,HyperRots
+TEKITOCOWCAT,Secret,5,1000,1M/s,1M,Secret Code,,,TEKITOCOWCAT
+LosLaLaLaYawara,Secret,5,1000,1M/s,1M,Secret Code,,,LosLaLaLaYawara
+TAROANDKEI,Secret,5,1000,1M/s,1M,Secret Code,,,TAROANDKEI
+GTL35,Secret,5,1000,1M/s,1M,Secret Code,,,GTL35
+MrBriefinDollZ,Secret,5,1000,1M/s,1M,Secret Code,,,MrBriefinDollZ
+SariniSpongini,Secret,5,1000,1M/s,1M,Secret Code,,,SariniSpongini
+TATATATAKUMAN,Secret,5,1000,1M/s,1M,Secret Code,,,TATATATAKUMAN
+JAMJAMJAMSahur,Secret,5,1000,1M/s,1M,Secret Code,,,JAMJAMJAMSahur
+ZataTV,Secret,5,1000,1M/s,1M,Secret Code,,,ZataTV
+Carloo,BrainrotGod,,500,2K/s,100B,Admin Abuse,,,Carloo
+SorrySorrySahur,Boss,,1,1/s,1,"Admin Abuse,Boss Box",,,SorrySorrySahur
+RedEvilJack,Unknown,,2000,270M/s,290B,Ritutal,,,RedEvilJack
+Ferinsini,Common,,900,5M/s,2B,Admin Abuse,,,Ferinsini
+OverlordOf100Spirits,YokaiBoss,,3500,2B/s,2T,Ritutal,,,OverlordOf100Spirits
+HyperRots,Secret,,1800,70M/s,20B,Ritutal,,,HyperRots
