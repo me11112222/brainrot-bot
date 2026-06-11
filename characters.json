@@ -5592,5 +5592,335 @@
     "image": null,
     "image_match": "none",
     "skins": {}
+  },
+  {
+    "name": "MiaoMiaoMahitono",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_MiaoMiaoMahitono_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_MiaoMiaoMahitono_1Default.PNG"
+    }
+  },
+  {
+    "name": "TEKITOCOWCAT",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_TEKITOCOWCAT_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_TEKITOCOWCAT_1Default.PNG"
+    }
+  },
+  {
+    "name": "LosLaLaLaYawara",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_LosLaLaLaYawara_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_LosLaLaLaYawara_1Default.PNG"
+    }
+  },
+  {
+    "name": "TAROANDKEI",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_TAROANDKEI_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_TAROANDKEI_1Default.PNG"
+    }
+  },
+  {
+    "name": "NEONCHAIN",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_NEONCHAIN_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_NEONCHAIN_1Default.PNG"
+    }
+  },
+  {
+    "name": "GTL35",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_GTL35_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_GTL35_1Default.PNG"
+    }
+  },
+  {
+    "name": "MrBriefinDollZ",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_MrBriefinDollZ_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_MrBriefinDollZ_1Default.PNG"
+    }
+  },
+  {
+    "name": "SariniSpongini",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_SariniSpongini_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_SariniSpongini_1Default.PNG"
+    }
+  },
+  {
+    "name": "TATATATAKUMAN",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_TATATATAKUMAN_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_TATATATAKUMAN_1Default.PNG"
+    }
+  },
+  {
+    "name": "JAMJAMJAMSahur",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_JAMJAMJAMSahur_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_JAMJAMJAMSahur_1Default.PNG"
+    }
+  },
+  {
+    "name": "ZataTV",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_ZataTV_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_ZataTV_1Default.PNG"
+    }
+  },
+  {
+    "name": "Carloo",
+    "rarity": "BrainrotGod",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_Carloo_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_Carloo_1Default.PNG",
+      "Gold": "T_Carloo_2Gold.PNG",
+      "Diamond": "T_Carloo_3Diamond.PNG",
+      "Rainbow": "T_Carloo_4Rainbow.PNG",
+      "Angel": "T_Carloo_5Angel.PNG",
+      "Devil": "T_Carloo_6Devil.PNG",
+      "Royal": "T_Carloo_7Royal.PNG",
+      "Yokai": "T_carloo_8Yokai.PNG",
+      "Pirate": "T_Carloo_9Pirate.PNG"
+    }
+  },
+  {
+    "name": "SorrySorrySahur",
+    "rarity": "Boss",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_SorrySorrySahur_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_SorrySorrySahur_1Default.PNG"
+    }
+  },
+  {
+    "name": "RedEvilJack",
+    "rarity": "Unknown",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_RedEvilJack_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_RedEvilJack_1Default.PNG",
+      "Gold": "T_REDEVILJACK_2Gold.PNG",
+      "Diamond": "T_REDEVILJACK_3Diamond.PNG",
+      "Rainbow": "T_REDEVILJACK_4Rainbow.PNG",
+      "Angel": "T_REDEVILJACK_5Angel.PNG",
+      "Devil": "T_REDEVILJACK_6Devil.PNG",
+      "Royal": "T_REDEVILJACK_7Royal.PNG",
+      "Yokai": "T_REDEVILJACK_8Yokai.PNG",
+      "Pirate": "T_REDEVILJACK_9Pirate.PNG"
+    }
+  },
+  {
+    "name": "Ferinsini",
+    "rarity": "Unknown",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_Ferinsini_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_Ferinsini_1Default.PNG"
+    }
+  },
+  {
+    "name": "OverlordOf100Spirits",
+    "rarity": "Unknown",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_OverlordOf100Spirits_8Yokai.PNG",
+    "image_match": "altskin",
+    "skins": {
+      "Yokai": "T_OverlordOf100Spirits_8Yokai.PNG"
+    }
+  },
+  {
+    "name": "HyperRots",
+    "rarity": "Unknown",
+    "tier": null,
+    "attack": null,
+    "production": "",
+    "price": "",
+    "how_to_get": "",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": null,
+    "image": "T_HyperRots_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_HyperRots_1Default.PNG",
+      "Gold": "T_HyperRots_2Gold.PNG",
+      "Diamond": "T_HyperRots_3Diamond.PNG",
+      "Rainbow": "T_HyperRots_4Rainbow.PNG",
+      "Angel": "T_HyperRots_5Angel.PNG",
+      "Devil": "T_HyperRots_6Devil.PNG",
+      "Royal": "T_HyperRots_7Royal.PNG",
+      "Yokai": "T_HyperRots_8Yokai.PNG",
+      "Pirate": "T_HyperRots_9Pirate.PNG"
+    }
   }
 ]

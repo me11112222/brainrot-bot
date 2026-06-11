@@ -1,4 +1,4 @@
-連番,ページ,レア度,ティア,ページ内順,現在の名前(OCR),正しい名前(記入),攻撃力,生産力,価格,確認,百鬼,備考(ヒント),入手方法,確率
+﻿連番,ページ,レア度,ティア,ページ内順,現在の名前(OCR),正しい名前(記入),攻撃力,生産力,価格,確認,百鬼,備考(ヒント),入手方法,確率
 1,2,Common,,1,BizzyFishy,BizzyFishy,10,1/s,10,OK,,,Red Carpet,
 2,2,Common,,2,LiriliLarila,LiriliLarila,20,2/s,200,OK,,,Red Carpet,
 3,2,Common,,3,TimCheese,TimCheese,30,3/s,300,OK,,,Red Carpet,
@@ -223,3 +223,20 @@
 222,14,課金,,18,Kaguya,Kaguya,3000,1B/s,1t,OK,,,Kaguya Box,5%
 223,15,Missing,,1,StrawberryElephant,StrawberryElephant,10000,5B/s,5t,⚠️要確認,,,Red Carpet,
 224,15,Missing,,2,Meowl,Meowl,7500,2.5B/s,2.5t,⚠️要確認,,,Red Carpet,
+225,,Secret,,,MiaoMiaoMahitono,MiaoMiaoMahitono,,,,追加(画像のみ),,,,
+226,,Secret,,,TEKITOCOWCAT,TEKITOCOWCAT,,,,追加(画像のみ),,,,
+227,,Secret,,,LosLaLaLaYawara,LosLaLaLaYawara,,,,追加(画像のみ),,,,
+228,,Secret,,,TAROANDKEI,TAROANDKEI,,,,追加(画像のみ),,,,
+229,,Secret,,,NEONCHAIN,NEONCHAIN,,,,追加(画像のみ),,,,
+230,,Secret,,,GTL35,GTL35,,,,追加(画像のみ),,,,
+231,,Secret,,,MrBriefinDollZ,MrBriefinDollZ,,,,追加(画像のみ),,,,
+232,,Secret,,,SariniSpongini,SariniSpongini,,,,追加(画像のみ),,,,
+233,,Secret,,,TATATATAKUMAN,TATATATAKUMAN,,,,追加(画像のみ),,,,
+234,,Secret,,,JAMJAMJAMSahur,JAMJAMJAMSahur,,,,追加(画像のみ),,,,
+235,,Secret,,,ZataTV,ZataTV,,,,追加(画像のみ),,,,
+236,,BrainrotGod,,,Carloo,Carloo,,,,追加(画像のみ),,,,
+237,,Boss,,,SorrySorrySahur,SorrySorrySahur,,,,追加(画像のみ),,,,
+238,,Unknown,,,RedEvilJack,RedEvilJack,,,,追加(画像のみ),,,,
+239,,Unknown,,,Ferinsini,Ferinsini,,,,追加(画像のみ),,,,
+240,,Unknown,,,OverlordOf100Spirits,OverlordOf100Spirits,,,,追加(画像のみ),,,,
+241,,Unknown,,,HyperRots,HyperRots,,,,追加(画像のみ),,,,

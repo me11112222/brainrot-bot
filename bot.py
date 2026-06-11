@@ -54,6 +54,7 @@ RARITY_META = {
     "Ultimate Boss": {"color": 0x7f1d1d, "emoji": "☠️", "order": 9},
     "YokaiBoss":     {"color": 0x991b1b, "emoji": "👹", "order": 10},
     "Missing":       {"color": 0x6b7280, "emoji": "❓", "order": 11},
+    "Unknown":       {"color": 0x52525b, "emoji": "❔", "order": 12},
 }
 
 # 変異(Trait): キー → 絵文字。個別に選択可・最大3・効果は同一
@@ -72,7 +73,7 @@ for _pair in os.getenv("TRAIT_EMOJIS", "").split(","):
 RARITY_ANSI = {
     "Common": "32", "Rare": "34", "Epic": "35", "Legendary": "33", "Mythic": "31",
     "BrainrotGod": "36", "Secret": "35", "Boss": "37", "Ultimate Boss": "31",
-    "YokaiBoss": "31", "Missing": "30",
+    "YokaiBoss": "31", "Missing": "30", "Unknown": "30",
 }
 
 # スパム対策: バースト(短期)＋持続(長期)の二段。違反者は段階的にタイムアウト。
@@ -776,7 +777,7 @@ class ListView(discord.ui.View):
 
 RARITY_CHOICES = [app_commands.Choice(name=r, value=r) for r in
                   ["Common", "Rare", "Epic", "Legendary", "Mythic", "BrainrotGod",
-                   "Secret", "Boss", "Ultimate Boss", "YokaiBoss", "Missing"]]
+                   "Secret", "Boss", "Ultimate Boss", "YokaiBoss", "Missing", "Unknown"]]
 
 
 @client.tree.command(name="list", description="List characters (filter by rarity / source)")

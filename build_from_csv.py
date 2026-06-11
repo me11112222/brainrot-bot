@@ -81,9 +81,7 @@ def clean_int(v):
 
 def main():
     default_idx, any_idx = build_image_index()
-    # 出力用画像フォルダを初期化
-    if IMG_OUT.exists():
-        shutil.rmtree(IMG_OUT)
+    # 出力用画像フォルダ（CDN用gitリポなので丸ごと削除しない・差分コピー）
     IMG_OUT.mkdir(parents=True, exist_ok=True)
 
     chars = []
