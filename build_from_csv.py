@@ -20,7 +20,7 @@ ROOT = BASE.parent
 IMG_SRC = Path(r"C:\AI\projects\IndexPng")
 # BOT同梱用に、必要な画像だけここへコピー（自己完結＝サーバー移行が楽）
 IMG_OUT = BASE / "images"
-CSV_IN = BASE / "FightTheBRAINROT INDEX - verify_sheet.csv"
+CSV_IN = BASE / "characters_edit.csv"   # 編集用の正本CSV（手で記載するファイル）
 OUT_JSON = BASE / "characters.json"
 
 DEFAULT_RE = re.compile(r"_1default\d*$", re.IGNORECASE)  # _1Default / _1Default1 等
@@ -89,13 +89,12 @@ def main():
 
     with open(CSV_IN, encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
-        for row in reader:
-            correct = (row.get("正しい名前(記入)") or "").strip()
-            ocr = (row.get("現在の名前(OCR)") or "").strip()
-            name = correct or ocr
+        for idx, row in enumerate(reader):
+            name = (row.get("name") or "").strip()
             if not name:
                 continue
-            src_path, how = match_image([correct, ocr], default_idx, any_idx)
+            image_name = (row.get("image_name") or "").strip()
+            src_path, how = match_image([image_name, name], default_idx, any_idx)
             stats[how] += 1
             # マッチした画像＋全スキンを BOT 同梱フォルダへコピー
             fn = None
@@ -114,20 +113,20 @@ def main():
                         shutil.copy2(sp, dst)
                     skins.setdefault(skin, sp.name)
                 fn = skins.get("Default") or src_path.name
-            tier = (row.get("ティア") or "").strip()
-            raw_rarity = (row.get("レア度") or "").strip()
+            tier = (row.get("tier") or "").strip()
+            raw_rarity = (row.get("rarity") or "").strip()
             chars.append({
                 "name": name,
                 "rarity": RARITY_REMAP.get(raw_rarity, raw_rarity),
                 "tier": int(tier) if tier.isdigit() else None,
-                "attack": clean_int(row.get("攻撃力")),
-                "production": (row.get("生産力") or "").strip(),
-                "price": (row.get("価格") or "").strip(),
-                "how_to_get": (row.get("入手方法") or "").strip(),
-                "drop_rate": (row.get("確率") or "").strip(),
-                "hyakki": (row.get("百鬼") or "").strip().upper() == "Y",
-                "page": clean_int(row.get("ページ")),
-                "order": clean_int(row.get("ページ内順")),
+                "attack": clean_int(row.get("attack")),
+                "production": (row.get("production") or "").strip(),
+                "price": (row.get("price") or "").strip(),
+                "how_to_get": (row.get("how_to_get") or "").strip(),
+                "drop_rate": (row.get("drop_rate") or "").strip(),
+                "hyakki": (row.get("hyakki") or "").strip().upper() == "Y",
+                "page": None,
+                "order": idx,
                 "image": fn,
                 "image_match": how,
                 "skins": skins,
