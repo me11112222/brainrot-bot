@@ -54,7 +54,7 @@ RARITY_META = {
     "Ultimate Boss": {"color": 0x7f1d1d, "emoji": "☠️", "order": 9},
     "YokaiBoss":     {"color": 0x991b1b, "emoji": "👹", "order": 10},
     "Missing":       {"color": 0x6b7280, "emoji": "❓", "order": 11},
-    "Unknown":       {"color": 0x52525b, "emoji": "❔", "order": 12},
+    "Unknown":       {"color": 0x52525b, "emoji": "👽", "order": 12},
 }
 
 # 変異(Trait): キー → 絵文字。個別に選択可・最大3・効果は同一
