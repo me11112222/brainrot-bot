@@ -291,16 +291,13 @@ def compute(char, skin="Default", trait_keys=None, star=0):
 
 
 def avail_skins(char):
+    # ゲージ(Mutation)は全キャラ共通の倍率なので、画像の有無に関わらず全部選べる。
+    # 画像が無いスキンは result_embed 側で Default 画像にフォールバック。
     sk = char.get("skins") or {}
-    ordered = [s for s in SKIN_ORDER if s in sk]
-    # SKIN_ORDER外（Default無くYokaiのみ等）も拾う
-    for s in sk:
+    ordered = list(SKIN_ORDER)
+    for s in sk:                        # SKIN_ORDER外の特殊スキンも末尾に拾う
         if s not in ordered:
             ordered.append(s)
-    if "Default" not in ordered:        # 画像が無くても基準として必ず置く
-        ordered.insert(0, "Default")
-    if "Neon" not in ordered:           # NEONは画像未登録でも選べる(×1.8計算)
-        ordered.append("Neon")
     return ordered
 
 
