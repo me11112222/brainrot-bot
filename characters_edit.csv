@@ -1,4 +1,4 @@
-﻿name,rarity,tier,attack,production,price,how_to_get,drop_rate,hyakki,image_name
+name,rarity,tier,attack,production,price,how_to_get,drop_rate,hyakki,image_name
 BizzyFishy,Common,,10,1/s,10,Red Carpet,,,BizzyFishy
 LiriliLarila,Common,,20,2/s,200,Red Carpet,,,LiriliLarilla
 TimCheese,Common,,30,3/s,300,Red Carpet,,,TimCheese
@@ -214,14 +214,14 @@ GrandThousandHands,Boss,,3300,1.2B/s,1.2t,Fuse Machine,,,GrandThousandHands
 BattleTurtle,Boss,,3600,1.5B/s,1.5t,Boss+,,,BattleTurtle
 Gorgonzilla,Boss,,3800,1.8B/s,1.8t,Boss+,,,Gorgonzilla
 DearDeer,Boss,,4000,2B/s,2t,Boss+,,,DearDeer
-HackTack,Ultimate Boss,,6500,2.5B/s,2t,Ritutal,,,HackTack
-Anubis,Ultimate Boss,,7000,3B/s,3t,Ritutal,,,ZumbariRadinibus
+HackTack,Ultimate Boss,,5000,2.8BM/s,2.8T,Ritutal,,,HackTack
+Anubis,Ultimate Boss,,5000,3B/s,3t,Ritutal,,,ZumbariRadinibus
 Gozumezu,YokaiBoss,,2750,900M/s,1.6t,Demon Box,1%,Y,GozuMezu
 Nioh,YokaiBoss,,3000,1.3B/s,1.75t,Demon Box,0.50%,Y,Nioh
 Nue,YokaiBoss,,3350,1.65B/s,1.85t,Demon Box,0.25%,Y,Nue
 Kaguya,Boss,,3000,1B/s,1t,Kaguya Box,5%,,Kaguya
 StrawberryElephant,Missing,,10000,5B/s,5t,Red Carpet,,,StrawberryElephant
-Meowl,Missing,,7500,2.5B/s,2.5t,Red Carpet,,,
+Meowl,Missing,,9000,2.5B/s,2.5t,Red Carpet,,,
 TEKITOCOWCAT,Secret,5,1000,1M/s,1M,Secret Code,,,TEKITOCOWCAT
 LosLaLaLaYawara,Secret,5,1000,1M/s,1M,Secret Code,,,LosLaLaLaYawara
 TAROANDKEI,Secret,5,1000,1M/s,1M,Secret Code,,,TAROANDKEI
@@ -237,3 +237,9 @@ RedEvilJack,Unknown,,2000,270M/s,290B,Ritutal,,,RedEvilJack
 Ferinsini,Common,,900,5M/s,2B,Admin Abuse,,,Ferinsini
 OverlordOf100Spirits,YokaiBoss,,3500,2B/s,2T,Ritutal,,,OverlordOf100Spirits
 HyperRots,Secret,,1800,70M/s,20B,Ritutal,,,HyperRots
+CelularciniViciosini,Secret,,1000,110Ms,40B,MegaBox,50,,
+LavadoritoSpinito,Secret,,1200,128M/s,75B,MegaBox,30,,
+LaTelefonoCombination,Secret,,1500,145M/s,150B,MegaBox,14,,
+MegaMechspot,Unknown,,1800,255M/s,270B,MegaBox,5,,
+SwipeKilla,Unknown,,2250,290M/s,400B,MegaBox,1,,
+ANTIHERO,Boss,,5000,3B/s,3T,RITUTAL,,,

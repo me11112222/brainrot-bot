@@ -60,7 +60,7 @@ RARITY_META = {
 # 変異(Trait): キー → 絵文字。個別に選択可・最大3・効果は同一
 # 既定はunicode。.env の TRAIT_EMOJIS でDiscordカスタム絵文字に差し替え可:
 #   TRAIT_EMOJIS=Patapim=<:Patapim:123>,Hyper=<:Hyper:456>,Hotspot=<:Hotspot:789>
-TRAITS = [("Patapim", "👃"), ("Hyper", "💑"), ("Hotspot", "📱")]
+TRAITS = [("Patapim", "👃"), ("Hyper", "💑"), ("Hotspot", "📱"), ("Celestial", "✨")]
 TRAIT_EMOJI = {k: v for k, v in TRAITS}
 for _pair in os.getenv("TRAIT_EMOJIS", "").split(","):
     if "=" in _pair:
@@ -155,14 +155,24 @@ def rate_ok(uid: int) -> bool:
 
 # スキン(ゲージ) → ($倍率, ⚔戦闘力倍率)  ※倍率表より
 SKIN_ORDER = ["Default", "Gold", "Diamond", "Rainbow", "Angel",
-              "Devil", "Royal", "Yokai", "Pirate"]
+              "Devil", "Royal", "Yokai", "Pirate", "Neon"]
 GAUGE_MULT = {
     "Default": (1.0, 1.0), "Gold": (1.25, 1.1), "Diamond": (1.5, 1.2),
     "Rainbow": (3.0, 1.4), "Angel": (5.0, 1.5), "Devil": (5.0, 1.5),
     "Royal": (6.0, 1.6), "Yokai": (7.0, 1.7), "Pirate": (7.0, 1.7),
+    "Neon": (1.8, 1.8),
 }
+# 価格(購入額)に影響しないMutation（NEONは戦闘/生産のみ×1.8、価格は据え置き）
+NO_PRICE_SKINS = {"Neon"}
 SKIN_EMOJI = {"Default": "⬜", "Gold": "🟨", "Diamond": "💎", "Rainbow": "🌈",
-              "Angel": "😇", "Devil": "😈", "Royal": "👑", "Yokai": "👺", "Pirate": "🏴‍☠️"}
+              "Angel": "😇", "Devil": "😈", "Royal": "👑", "Yokai": "👺",
+              "Pirate": "🏴‍☠️", "Neon": "🔆"}
+# .env の SKIN_EMOJIS でDiscordカスタム絵文字に差し替え可（例: Neon=<:Neon:123>）
+for _pair in os.getenv("SKIN_EMOJIS", "").split(","):
+    if "=" in _pair:
+        _k, _v = _pair.split("=", 1)
+        if _k.strip() in SKIN_EMOJI and _v.strip():
+            SKIN_EMOJI[_k.strip()] = _v.strip()
 
 # ★レベル → ($倍率, ⚔戦闘力倍率)
 STAR_MULT = {1: (1.5, 1.1), 2: (2.0, 1.25), 3: (2.5, 1.5), 4: (3.0, 2.0), 5: (4.0, 2.8)}
@@ -170,10 +180,15 @@ STAR_MULT = {1: (1.5, 1.1), 2: (2.0, 1.25), 3: (2.5, 1.5), 4: (3.0, 2.0), 5: (4.
 # 特例: ★5で別ステータスに化けるキャラ（★倍率は値に内包済みなので別途掛けない）
 SPECIAL_STAR5 = {"SorrySorrySahur": {"attack": 2000, "production": "500M/s"}}
 
-# Trait(属性): 1個につき 戦闘力×+0.1 / 生産×+1.0（効果同一・重複可）
-TRAIT_BATTLE_PER = 0.1
-TRAIT_MONEY_PER = 1.0
-MAX_TRAITS = 3
+# Trait(属性): キーごとに (戦闘倍率加算, 生産倍率加算)。価格には効かない。
+# Celestialは戦闘+0.2と強め、他は+0.1。生産は全て+1.0。
+TRAIT_WEIGHTS = {
+    "Patapim":   (0.1, 1.0),
+    "Hyper":     (0.1, 1.0),
+    "Hotspot":   (0.1, 1.0),
+    "Celestial": (0.2, 1.0),
+}
+MAX_TRAITS = len(TRAITS)
 
 PER_PAGE = 12
 CHAR_SELECT_MAX = 25
@@ -236,11 +251,14 @@ def scale_amount(s, mult, per_s=False):
     return fmt_amount(v * mult, per_s)
 
 
-def compute(char, skin="Default", traits=0, star=0):
-    """合成倍率 = (スキンb ＋ ★c − 1) に Trait を加算(戦闘 +0.1/個, 生産 +1/個)。
-    価格は Trait を加えない。戦闘力は切り捨て(floor)。
+def compute(char, skin="Default", trait_keys=None, star=0):
+    """合成倍率 = (スキンb ＋ ★c − 1) に Trait を加算(キーごとの重み)。
+    価格は Trait を加えず、NEON等 NO_PRICE_SKINS のスキン倍率も無視。
+    戦闘力は切り捨て(floor)。
     """
+    trait_keys = trait_keys or []
     gm, bm = GAUGE_MULT.get(skin, (1.0, 1.0))           # b ($倍率, 戦闘倍率)
+    pgm = 1.0 if skin in NO_PRICE_SKINS else gm         # 価格用スキン倍率(NEONは効かない)
     atk = char.get("attack")
     prod_str = char.get("production")
     price_str = char.get("price")
@@ -254,12 +272,17 @@ def compute(char, skin="Default", traits=0, star=0):
         sm_m, sm_b = STAR_MULT[eff_star]                # c
         base_b = bm + sm_b - 1
         base_m = gm + sm_m - 1
+        price_base_m = pgm + sm_m - 1
     else:
         base_b = bm
         base_m = gm
-    batt_mult = base_b + TRAIT_BATTLE_PER * traits      # Trait加算(+0.1/個)
-    money_mult = base_m + TRAIT_MONEY_PER * traits      # Trait加算(+1/個)
-    price_mult = base_m                                 # 価格はTrait無し
+        price_base_m = pgm
+    # Trait加算（キーごとの重み: 戦闘, 生産）
+    tb = sum(TRAIT_WEIGHTS.get(k, (0.0, 0.0))[0] for k in trait_keys)
+    tm = sum(TRAIT_WEIGHTS.get(k, (0.0, 0.0))[1] for k in trait_keys)
+    batt_mult = base_b + tb
+    money_mult = base_m + tm
+    price_mult = price_base_m                           # 価格はTrait無し・NEON無視
 
     battle = f"{int(atk * batt_mult + 1e-9):,}" if isinstance(atk, (int, float)) else "—"
     prod = scale_amount(prod_str, money_mult, per_s=True)
@@ -274,13 +297,17 @@ def avail_skins(char):
     for s in sk:
         if s not in ordered:
             ordered.append(s)
+    if "Default" not in ordered:        # 画像が無くても基準として必ず置く
+        ordered.insert(0, "Default")
+    if "Neon" not in ordered:           # NEONは画像未登録でも選べる(×1.8計算)
+        ordered.append("Neon")
     return ordered
 
 
 def result_embed(char, skin="Default", trait_keys=None, star=0):
     trait_keys = trait_keys or []
     meta = rarity_meta(char["rarity"])
-    battle, prod, price, _b, _m = compute(char, skin, len(trait_keys), star)
+    battle, prod, price, _b, _m = compute(char, skin, trait_keys, star)
     esc = chr(27)
     rc = RARITY_ANSI.get(char["rarity"], "37")
 
@@ -498,9 +525,15 @@ class IndexView(discord.ui.View):
         return sel
 
     def _skin_select(self):       # 3番目
-        opts = [discord.SelectOption(label=s, emoji=SKIN_EMOJI.get(s),
-                                     default=(s == self.skin))
-                for s in avail_skins(self.char)]
+        opts = []
+        for s in avail_skins(self.char):
+            emo = SKIN_EMOJI.get(s)
+            try:
+                pe = discord.PartialEmoji.from_str(emo) if emo else None
+            except Exception:
+                pe = None
+            opts.append(discord.SelectOption(label=s, emoji=pe,
+                                             default=(s == self.skin)))
         sel = discord.ui.Select(placeholder="🎨 Skin (gauge)…", options=opts[:25], row=2)
 
         async def cb(interaction):
