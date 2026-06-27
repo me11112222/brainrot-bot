@@ -159,11 +159,11 @@ SKIN_ORDER = ["Default", "Gold", "Diamond", "Rainbow", "Angel",
 GAUGE_MULT = {
     "Default": (1.0, 1.0), "Gold": (1.25, 1.1), "Diamond": (1.5, 1.2),
     "Rainbow": (3.0, 1.4), "Angel": (5.0, 1.5), "Devil": (5.0, 1.5),
-    "Royal": (6.0, 1.6), "Yokai": (7.0, 1.7), "Pirate": (7.0, 1.7),
+    "Royal": (6.0, 1.6), "Yokai": (1.8, 1.8), "Pirate": (7.0, 1.7),
     "Neon": (1.8, 1.8),
 }
-# 価格(購入額)に影響しないMutation（NEONは戦闘/生産のみ×1.8、価格は据え置き）
-NO_PRICE_SKINS = {"Neon"}
+# 価格(購入額)に影響しないMutation（戦闘/生産のみ×1.8、価格は据え置き）
+NO_PRICE_SKINS = {"Neon", "Yokai"}
 SKIN_EMOJI = {"Default": "⬜", "Gold": "🟨", "Diamond": "💎", "Rainbow": "🌈",
               "Angel": "😇", "Devil": "😈", "Royal": "👑", "Yokai": "👺",
               "Pirate": "🏴‍☠️", "Neon": "🔆"}
