@@ -339,6 +339,28 @@ def result_embed(char, skin="Default", trait_keys=None, star=0):
     return e, None
 
 
+def safe_emoji(emo):
+    """SelectOption用の絵文字を安全に解決。
+    カスタム絵文字はBOTがアクセスできる(=居るサーバーの)ものだけ採用。
+    見えない/壊れたIDは None を返す → Discordの400(Invalid emoji)で全体が落ちるのを防ぐ。
+    """
+    if not emo:
+        return None
+    try:
+        pe = discord.PartialEmoji.from_str(emo)
+    except Exception:
+        return None
+    if pe is None:
+        return None
+    if pe.id is not None:                     # カスタム絵文字
+        try:
+            if client.get_emoji(pe.id) is None:
+                return None                    # BOGから見えない → 絵文字なしにフォールバック
+        except Exception:
+            return None
+    return pe                                  # unicode絵文字はそのまま
+
+
 # ── 対話 View ─────────────────────────────────────
 class IndexView(discord.ui.View):
     def __init__(self, char=None):
@@ -508,11 +530,7 @@ class IndexView(discord.ui.View):
     def _trait_select(self):      # 2番目
         opts = []
         for k, _ in TRAITS:
-            emo = TRAIT_EMOJI.get(k)
-            try:
-                pe = discord.PartialEmoji.from_str(emo) if emo else None
-            except Exception:
-                pe = None
+            pe = safe_emoji(TRAIT_EMOJI.get(k))
             opts.append(discord.SelectOption(label=k, value=k, emoji=pe,
                                              default=(k in self.trait_keys)))
         sel = discord.ui.Select(placeholder="✨ Traits (pick any)…", options=opts,
@@ -527,11 +545,7 @@ class IndexView(discord.ui.View):
     def _skin_select(self):       # 3番目
         opts = []
         for s in avail_skins(self.char):
-            emo = SKIN_EMOJI.get(s)
-            try:
-                pe = discord.PartialEmoji.from_str(emo) if emo else None
-            except Exception:
-                pe = None
+            pe = safe_emoji(SKIN_EMOJI.get(s))
             opts.append(discord.SelectOption(label=s, emoji=pe,
                                              default=(s == self.skin)))
         sel = discord.ui.Select(placeholder="🎨 Skin (gauge)…", options=opts[:25], row=2)
