@@ -29,6 +29,12 @@ ANYSKIN_RE = re.compile(r"_\d+\w*$")                      # _2Gold / _8Yokai 等
 # レア度の改称・統合（課金は廃止しBossへ）
 RARITY_REMAP = {"極Boss": "Ultimate Boss", "百鬼": "YokaiBoss", "課金": "Boss"}
 
+# スキン名の対応: ゲーム/UEFNのエクスポート名 → ボット内のMutation名
+# 10番目スロット "Eclipse" は、ボットでは Mutation「Neon」として扱う
+SKIN_REMAP = {"Eclipse": "Neon"}
+# 図鑑のスキン選択に出さないスキン（画像はimages/にコピーするが skins辞書には載せない）
+SKIN_SKIP = {"Matrix"}
+
 
 def norm(s: str) -> str:
     s = unicodedata.normalize("NFKC", str(s))
@@ -108,9 +114,12 @@ def main():
                 for sp in variants:
                     m = re.search(r"_\d+([A-Za-z]+)\d*$", sp.stem)
                     skin = m.group(1) if m else "Default"
+                    skin = SKIN_REMAP.get(skin, skin)
                     dst = IMG_OUT / sp.name
                     if not dst.exists():
                         shutil.copy2(sp, dst)
+                    if skin in SKIN_SKIP:
+                        continue  # 画像はコピー済み・スキン選択には出さない
                     skins.setdefault(skin, sp.name)
                 fn = skins.get("Default") or src_path.name
             tier = (row.get("tier") or "").strip()
