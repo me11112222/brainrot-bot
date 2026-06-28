@@ -253,7 +253,7 @@ def scale_amount(s, mult, per_s=False):
 
 def compute(char, skin="Default", trait_keys=None, star=0):
     """合成倍率 = (スキンb ＋ ★c − 1) に Trait を加算(キーごとの重み)。
-    価格は Trait を加えず、NEON等 NO_PRICE_SKINS のスキン倍率も無視。
+    価格は常にbase固定(★/Mutation/Traitで変わらない・実機準拠)。
     戦闘力は切り捨て(floor)。
     """
     trait_keys = trait_keys or []
@@ -282,7 +282,7 @@ def compute(char, skin="Default", trait_keys=None, star=0):
     tm = sum(TRAIT_WEIGHTS.get(k, (0.0, 0.0))[1] for k in trait_keys)
     batt_mult = base_b + tb
     money_mult = base_m + tm
-    price_mult = price_base_m                           # 価格はTrait無し・NEON無視
+    price_mult = 1.0                                    # 価格は常にbase固定(★/Mutation/Traitで変わらない・実機準拠)
 
     battle = f"{int(atk * batt_mult + 1e-9):,}" if isinstance(atk, (int, float)) else "—"
     prod = scale_amount(prod_str, money_mult, per_s=True)
