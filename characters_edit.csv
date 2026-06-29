@@ -187,7 +187,7 @@ MosasasaSaurus,Secret,2,1700,190M/s,45b,Pirate Box,1%,,MosasasaSaurus
 SushiAndTempura,Secret,2,1450,240M/s,250b,Red Carpet,,,SushiAndTempura
 MoonyMoonyGnom,Secret,2,1500,155M/s,120b,Kaguya Box,30%,,MoonyMoonyGnom
 Los Hotspotsitos,Secret,2,1500,170M/s,25b,Pot Box,5%,,LosHotspotsitos
-DragonCannelloni,Secret,1,2300,300M/s,300b,Red Carpet,,,DragonCannelloni
+DragonCannelloni,Secret,1,2400,300M/s,300b,Red Carpet,,,DragonCannelloni
 CapitanoMoby,Secret,1,1900,250M/s,290b,Red Carpet,,,CapitanoMoby
 ThunderDancerSpider,Secret,1,1850,200M/s,200b,Red Carpet,,,ThunderDancerSpider
 Cerberus,Secret,1,2200,270M/s,270b,Red Carpet,,,Cerberus
@@ -240,6 +240,6 @@ HyperRots,Secret,,1800,70M/s,20B,Ritutal,,,HyperRots
 CelularciniViciosini,Secret,,1000,110Ms,40B,MegaBox,50,,
 LavadoritoSpinito,Secret,,1200,128M/s,75B,MegaBox,30,,
 LaTelefonoCombination,Secret,,1500,145M/s,150B,MegaBox,14,,
-MegaMechspot,Unknown,,1800,255M/s,270B,MegaBox,5,,
-SwipeKilla,Unknown,,2250,290M/s,400B,MegaBox,1,,
+MegaMechspot,Unknown,,2180,255M/s,270B,MegaBox,5,,
+SwipeKilla,Unknown,,2550,290M/s,400B,MegaBox,1,,
 ANTIHERO,Boss,,5000,3B/s,3T,RITUTAL,,,
