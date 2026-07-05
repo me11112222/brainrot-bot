@@ -6228,5 +6228,59 @@
     "skins": {
       "Default": "T_AntiHero_1Default.PNG"
     }
+  },
+  {
+    "name": "AbyssalRabiknight",
+    "rarity": "Unknown",
+    "tier": null,
+    "attack": 2200,
+    "production": "450M/s",
+    "price": "450B",
+    "how_to_get": "Ritutal",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 244,
+    "image": "T_AbyssalRabiknight_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Neon": "T_AbyssalRabiknight_10Eclipse.PNG",
+      "Default": "T_AbyssalRabiknight_1Default.PNG",
+      "Gold": "T_AbyssalRabiknight_2Gold.PNG",
+      "Diamond": "T_AbyssalRabiknight_3Diamond.PNG",
+      "Rainbow": "T_AbyssalRabiknight_4Rainbow.PNG",
+      "Angel": "T_AbyssalRabiknight_5Angel.PNG",
+      "Devil": "T_AbyssalRabiknight_6Devil.PNG",
+      "Royal": "T_AbyssalRabiknight_7Royal.PNG",
+      "Yokai": "T_AbyssalRabiknight_8Yokai.PNG",
+      "Pirate": "T_AbyssalRabiknight_9Pirate.PNG"
+    }
+  },
+  {
+    "name": "SunnyAndMoony",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": 1950,
+    "production": "210M/s",
+    "price": "110B",
+    "how_to_get": "CelestialParty",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 245,
+    "image": "T_SunnyAndMoony_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Neon": "T_SunnyAndMoony_10Eclipse.PNG",
+      "Default": "T_SunnyAndMoony_1Default.PNG",
+      "Gold": "T_SunnyAndMoony_2Gold.PNG",
+      "Diamond": "T_SunnyAndMoony_3Diamond.PNG",
+      "Rainbow": "T_SunnyAndMoony_4Rainbow.PNG",
+      "Angel": "T_SunnyAndMoony_5Angel.PNG",
+      "Devil": "T_SunnyAndMoony_6Devil.PNG",
+      "Royal": "T_SunnyAndMoony_7Royal.PNG",
+      "Yokai": "T_SunnyAndMoony_8Yokai.PNG",
+      "Pirate": "T_SunnyAndMoony_9Pirate.PNG"
+    }
   }
 ]
