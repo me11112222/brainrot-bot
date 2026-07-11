@@ -6282,5 +6282,86 @@
       "Yokai": "T_SunnyAndMoony_8Yokai.PNG",
       "Pirate": "T_SunnyAndMoony_9Pirate.PNG"
     }
+  },
+  {
+    "name": "BurguroAndFryuro",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": 1600,
+    "production": "122M/s",
+    "price": "87B",
+    "how_to_get": "FuseMachine",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 246,
+    "image": "T_BurguroAndFryuro_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Neon": "T_BurguroAndFryuro_10Eclipse.PNG",
+      "Default": "T_BurguroAndFryuro_1Default.PNG",
+      "Gold": "T_BurguroAndFryuro_2Gold.PNG",
+      "Diamond": "T_BurguroAndFryuro_3Diamond.PNG",
+      "Rainbow": "T_BurguroAndFryuro_4Rainbow.PNG",
+      "Angel": "T_BurguroAndFryuro_5Angel.PNG",
+      "Devil": "T_BurguroAndFryuro_6Devil.PNG",
+      "Royal": "T_BurguroAndFryuro_7Royal.PNG",
+      "Yokai": "T_BurguroAndFryuro_8Yokai.PNG",
+      "Pirate": "T_BurguroAndFryuro_9Pirate.PNG"
+    }
+  },
+  {
+    "name": "LaSupremeCombinasion",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": 2000,
+    "production": "244M/s",
+    "price": "288B",
+    "how_to_get": "FuseMachine",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 247,
+    "image": "T_LaSupremeCombinasion_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Neon": "T_LaSupremeCombinasion_10Eclipse.PNG",
+      "Default": "T_LaSupremeCombinasion_1Default.PNG",
+      "Gold": "T_LaSupremeCombinasion_2Gold.PNG",
+      "Diamond": "T_LaSupremeCombinasion_3Diamond.PNG",
+      "Rainbow": "T_LaSupremeCombinasion_4Rainbow.PNG",
+      "Angel": "T_LaSupremeCombinasion_5Angel.PNG",
+      "Devil": "T_LaSupremeCombinasion_6Devil.PNG",
+      "Royal": "T_LaSupremeCombinasion_7Royal.PNG",
+      "Yokai": "T_LaSupremeCombinasion_8Yokai.PNG",
+      "Pirate": "T_LaSupremeCombinasion_9Pirate.PNG"
+    }
+  },
+  {
+    "name": "Fenrir",
+    "rarity": "Unknown",
+    "tier": null,
+    "attack": 2300,
+    "production": "350M/s",
+    "price": "450B",
+    "how_to_get": "FuseMachine",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 248,
+    "image": "T_Fenrir_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Neon": "T_Fenrir_10Eclipse.PNG",
+      "Default": "T_Fenrir_1Default.PNG",
+      "Gold": "T_Fenrir_2Gold.PNG",
+      "Diamond": "T_Fenrir_3Diamond.PNG",
+      "Rainbow": "T_Fenrir_4Rainbow.PNG",
+      "Angel": "T_Fenrir_5Angel.PNG",
+      "Devil": "T_Fenrir_6Devil.PNG",
+      "Royal": "T_Fenrir_7Royal.PNG",
+      "Yokai": "T_Fenrir_8Yokai.PNG",
+      "Pirate": "T_Fenrir_9Pirate.PNG"
+    }
   }
 ]
