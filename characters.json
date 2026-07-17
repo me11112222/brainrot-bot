@@ -6363,5 +6363,59 @@
       "Yokai": "T_Fenrir_8Yokai.PNG",
       "Pirate": "T_Fenrir_9Pirate.PNG"
     }
+  },
+  {
+    "name": "BaccuruAndEgguru",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": 1450,
+    "production": "190M/s",
+    "price": "135B",
+    "how_to_get": "ガチャ",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 249,
+    "image": "T_BaccuruAndEgguru_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Neon": "T_BaccuruAndEgguru_10Eclipse.PNG",
+      "Default": "T_BaccuruAndEgguru_1Default.PNG",
+      "Gold": "T_BaccuruAndEgguru_2Gold.PNG",
+      "Diamond": "T_BaccuruAndEgguru_3Diamond.PNG",
+      "Rainbow": "T_BaccuruAndEgguru_4Rainbow.PNG",
+      "Angel": "T_BaccuruAndEgguru_5Angel.PNG",
+      "Devil": "T_BaccuruAndEgguru_6Devil.PNG",
+      "Royal": "T_BaccuruAndEgguru_7Royal.PNG",
+      "Yokai": "T_BaccuruAndEgguru_8Yokai.PNG",
+      "Pirate": "T_BaccuruAndEgguru_9Pirate.PNG"
+    }
+  },
+  {
+    "name": "BatCeiver",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": 1110,
+    "production": "85M/s",
+    "price": "17B",
+    "how_to_get": "ガチャ",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 250,
+    "image": "T_BatCeiver_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Neon": "T_BatCeiver_10Eclipse.PNG",
+      "Default": "T_BatCeiver_1Default.PNG",
+      "Gold": "T_BatCeiver_2Gold.PNG",
+      "Diamond": "T_BatCeiver_3Diamond.PNG",
+      "Rainbow": "T_BatCeiver_4Rainbow.PNG",
+      "Angel": "T_BatCeiver_5Angel.PNG",
+      "Devil": "T_BatCeiver_6Devil.PNG",
+      "Royal": "T_BatCeiver_7Royal.PNG",
+      "Yokai": "T_BatCeiver_8Yokai.PNG",
+      "Pirate": "T_BatCeiver_9Pirate.PNG"
+    }
   }
 ]
