@@ -6417,5 +6417,50 @@
       "Yokai": "T_BatCeiver_8Yokai.PNG",
       "Pirate": "T_BatCeiver_9Pirate.PNG"
     }
+  },
+  {
+    "name": "Yatagarasu",
+    "rarity": "YokaiBoss",
+    "tier": null,
+    "attack": 3450,
+    "production": "650M/s",
+    "price": "1.2t",
+    "how_to_get": "BossRush",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 251,
+    "image": "T_Yatagarasu_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Default": "T_Yatagarasu_1Default.PNG"
+    }
+  },
+  {
+    "name": "DugDugDug",
+    "rarity": "Secret",
+    "tier": null,
+    "attack": 1300,
+    "production": "100M/s",
+    "price": "32B",
+    "how_to_get": "FuseMachine",
+    "drop_rate": "",
+    "hyakki": false,
+    "page": null,
+    "order": 252,
+    "image": "T_DugDugDug_1Default.PNG",
+    "image_match": "exact",
+    "skins": {
+      "Neon": "T_DugDugDug_10Eclipse.PNG",
+      "Default": "T_DugDugDug_1Default.PNG",
+      "Gold": "T_DugDugDug_2Gold.PNG",
+      "Diamond": "T_DugDugDug_3Diamond.PNG",
+      "Rainbow": "T_DugDugDug_4Rainbow.PNG",
+      "Angel": "T_DugDugDug_5Angel.PNG",
+      "Devil": "T_DugDugDug_6Devil.PNG",
+      "Royal": "T_DugDugDug_7Royal.PNG",
+      "Yokai": "T_DugDugDug_8Yokai.PNG",
+      "Pirate": "T_DugDugDug_9Pirate.PNG"
+    }
   }
 ]
