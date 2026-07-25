@@ -698,6 +698,8 @@ async def on_ready():
                     await g.leave()
                 except Exception:
                     pass
+    # 図鑑を更新して再起動したタイミングでパネルを最下部へ貼り直す（＋新キャラ告知）
+    await repost_panel_on_start()
 
 
 @client.event
@@ -715,24 +717,76 @@ STICKY_FILE = BASE / "sticky.json"
 _sticky_channel = None
 _last_panel_msg = {}     # channel_id -> Message
 _last_repost = {}        # channel_id -> monotonic
+_known_names = set()     # 前回起動時の図鑑キャラ名（新キャラ検出用）
+_panel_reposted = False  # 再接続でon_readyが複数回来ても貼り直しは1回だけ
 
 
 def _load_sticky():
-    global _sticky_channel
+    global _sticky_channel, _known_names
     try:
-        _sticky_channel = json.loads(STICKY_FILE.read_text()).get("channel_id")
+        d = json.loads(STICKY_FILE.read_text())
+        _sticky_channel = d.get("channel_id")
+        _known_names = set(d.get("char_names") or [])
     except Exception:
         _sticky_channel = None
+        _known_names = set()
 
 
 def _save_sticky():
     try:
-        STICKY_FILE.write_text(json.dumps({"channel_id": _sticky_channel}))
+        STICKY_FILE.write_text(json.dumps(
+            {"channel_id": _sticky_channel, "char_names": sorted(_known_names)},
+            ensure_ascii=False))
     except Exception:
         pass
 
 
 _load_sticky()
+
+
+async def repost_panel_on_start():
+    """起動時（＝図鑑を更新して再起動したタイミング）にパネルを最下部へ貼り直す。
+    新キャラが増えていれば「図鑑更新」のお知らせも出す。"""
+    global _known_names, _panel_reposted
+    if _panel_reposted or not _sticky_channel:
+        return
+    _panel_reposted = True
+    ch = client.get_channel(_sticky_channel)
+    if ch is None:
+        try:
+            ch = await client.fetch_channel(_sticky_channel)
+        except Exception:
+            return
+    # 再起動でメモリ上の参照が消えるので、履歴から古いパネルを探して消す（重複防止）
+    try:
+        async for m in ch.history(limit=50):
+            if (m.author.id == client.user.id and m.embeds
+                    and (m.embeds[0].title or "").startswith("🔍 Fight Index")):
+                try:
+                    await m.delete()
+                except Exception:
+                    pass
+    except Exception:
+        pass
+    now_names = {c["name"] for c in CHARS if c.get("name")}
+    # 初回（スナップショット未保存）は差分を出さない＝全キャラ列挙の事故防止
+    added = sorted(now_names - _known_names) if _known_names else []
+    try:
+        if added:
+            shown = ", ".join(f"**{n}**" for n in added[:15])
+            more = f" ほか{len(added) - 15}体" if len(added) > 15 else ""
+            await ch.send(embed=discord.Embed(
+                title="📚 図鑑を更新したよ / Index updated",
+                description=(f"🆕 {shown}{more}\n\n"
+                             f"ぜんぶで **{len(now_names)}体** / total characters\n"
+                             f"下の **🔍 Find** から見てね！"),
+                color=0x4f8ef7))
+        _last_panel_msg[ch.id] = await ch.send(
+            embed=panel_embed(), view=OpenPanelView())
+    except Exception as e:
+        print("panel repost failed:", e)
+    _known_names = now_names
+    _save_sticky()
 
 
 @client.event
